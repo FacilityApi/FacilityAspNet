@@ -65,7 +65,7 @@ namespace Facility.AspNet
 
 							code.WriteLineSkipOnce();
 							CSharpUtility.WriteObsoleteAttribute(code, methodInfo);
-							code.WriteLine($"[{GetHttpMethodAttribute(httpMethodInfo)}, Route(\"{httpMethodInfo.Path}\")]");
+							code.WriteLine($"[{GetHttpMethodAttribute(httpMethodInfo)}, Route(\"{httpMethodInfo.Path.Substring(1)}\")]");
 							code.WriteLine($"public Task<HttpResponseMessage> {methodName}(HttpRequestMessage httpRequest, CancellationToken cancellationToken = default(CancellationToken))");
 							using (code.Block())
 								code.WriteLine($"return GetServiceHttpHandler().TryHandle{methodName}Async(httpRequest, cancellationToken);");
