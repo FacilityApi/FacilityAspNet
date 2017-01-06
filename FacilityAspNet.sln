@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{A219E328-B15A-41FF-BAA5-5F46679EF9C8}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		build.cake = build.cake
+		SolutionInfo.cs = SolutionInfo.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fsdgenaspnet", "src\fsdgenaspnet\fsdgenaspnet.csproj", "{51A2CA25-1872-4928-AA41-320AA74D4223}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility.AspNet", "src\Facility.AspNet\Facility.AspNet.csproj", "{95A8E40E-F3EC-4299-B6C5-42433CCDD296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility.AspNet.UnitTests", "tests\Facility.AspNet.UnitTests\Facility.AspNet.UnitTests.csproj", "{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{C82BFA69-5C83-4F83-B74F-6F5176554225}"
+	ProjectSection(SolutionItems) = preProject
+		example\ExampleApi.fsd = example\ExampleApi.fsd
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51A2CA25-1872-4928-AA41-320AA74D4223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A2CA25-1872-4928-AA41-320AA74D4223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A2CA25-1872-4928-AA41-320AA74D4223}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A2CA25-1872-4928-AA41-320AA74D4223}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95A8E40E-F3EC-4299-B6C5-42433CCDD296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A8E40E-F3EC-4299-B6C5-42433CCDD296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A8E40E-F3EC-4299-B6C5-42433CCDD296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A8E40E-F3EC-4299-B6C5-42433CCDD296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
