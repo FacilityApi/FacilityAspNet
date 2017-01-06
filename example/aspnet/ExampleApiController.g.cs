@@ -7,6 +7,7 @@ using System.Web.Http;
 using Facility.Core;
 
 #pragma warning disable 1591 // missing XML comment
+
 namespace Facility.ExampleApi.Controllers
 {
 	[System.CodeDom.Compiler.GeneratedCode("fsdgenaspnet", "")]
