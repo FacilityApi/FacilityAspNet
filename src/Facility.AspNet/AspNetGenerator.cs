@@ -86,7 +86,7 @@ namespace Facility.AspNet
 			}
 			else
 			{
-				return "AcceptVerbs(\"" + httpMethodInfo.Method + "\")";
+				return $"AcceptVerbs(\"{httpMethodInfo.Method}\")";
 			}
 		}
 	}
