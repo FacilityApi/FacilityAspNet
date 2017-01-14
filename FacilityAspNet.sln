@@ -5,16 +5,22 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{A219E328-B15A-41FF-BAA5-5F46679EF9C8}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
 		build.cake = build.cake
+		build.ps1 = build.ps1
+		LICENSE = LICENSE
+		README.md = README.md
 		SolutionInfo.cs = SolutionInfo.cs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fsdgenaspnet", "src\fsdgenaspnet\fsdgenaspnet.csproj", "{51A2CA25-1872-4928-AA41-320AA74D4223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility.AspNet", "src\Facility.AspNet\Facility.AspNet.csproj", "{95A8E40E-F3EC-4299-B6C5-42433CCDD296}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility.CodeGen.AspNet", "src\Facility.CodeGen.AspNet\Facility.CodeGen.AspNet.csproj", "{95A8E40E-F3EC-4299-B6C5-42433CCDD296}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility.AspNet.UnitTests", "tests\Facility.AspNet.UnitTests\Facility.AspNet.UnitTests.csproj", "{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility.CodeGen.AspNet.UnitTests", "tests\Facility.CodeGen.AspNet.UnitTests\Facility.CodeGen.AspNet.UnitTests.csproj", "{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{C82BFA69-5C83-4F83-B74F-6F5176554225}"
 	ProjectSection(SolutionItems) = preProject

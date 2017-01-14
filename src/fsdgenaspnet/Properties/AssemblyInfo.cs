@@ -4,7 +4,7 @@ using System.Resources;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("fsdgenaspnet")]
-[assembly: AssemblyDescription("A command-line tool that generates AspNet for a Facility Service Definition.")]
+[assembly: AssemblyDescription("Used by fsdgenaspnet to generate Markdown for a Facility Service Definition.")]
 [assembly: AssemblyProduct("fsdgenaspnet")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]

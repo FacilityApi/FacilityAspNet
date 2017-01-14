@@ -4,7 +4,7 @@ using Facility.Definition;
 using Facility.Definition.CodeGen;
 using Facility.Definition.Http;
 
-namespace Facility.AspNet
+namespace Facility.CodeGen.AspNet
 {
 	/// <summary>
 	/// Generates an APS.NET controller.

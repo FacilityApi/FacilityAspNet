@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ArgsReading;
-using Facility.Console;
-using Facility.AspNet;
+using Facility.CodeGen.AspNet;
+using Facility.CodeGen.Console;
 using Facility.Definition.CodeGen;
 
 namespace fsdgenaspnet

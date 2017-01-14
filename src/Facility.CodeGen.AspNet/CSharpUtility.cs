@@ -6,7 +6,7 @@ using System.Text;
 using Facility.Definition;
 using Facility.Definition.CodeGen;
 
-namespace Facility.AspNet
+namespace Facility.CodeGen.AspNet
 {
 	internal static class CSharpUtility
 	{

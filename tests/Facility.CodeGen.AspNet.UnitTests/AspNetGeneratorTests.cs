@@ -4,7 +4,7 @@ using Facility.Definition;
 using Facility.Definition.Fsd;
 using NUnit.Framework;
 
-namespace Facility.AspNet.UnitTests
+namespace Facility.CodeGen.AspNet.UnitTests
 {
 	public sealed class AspNetGeneratorTests
 	{
@@ -12,7 +12,7 @@ namespace Facility.AspNet.UnitTests
 		public void GenerateExampleApiSuccess()
 		{
 			ServiceInfo service;
-			const string fileName = "Facility.AspNet.UnitTests.ExampleApi.fsd";
+			const string fileName = "Facility.CodeGen.AspNet.UnitTests.ExampleApi.fsd";
 			var parser = new FsdParser();
 			var stream = GetType().GetTypeInfo().Assembly.GetManifestResourceStream(fileName);
 			Assert.IsNotNull(stream);
