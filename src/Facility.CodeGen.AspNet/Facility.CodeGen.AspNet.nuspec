@@ -5,7 +5,7 @@
     <version>$version$</version>
     <authors>Ed Ball</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A tool that generates ASP.NET for a Facility Service Definition.</description>
+    <description>Used by fsdgenaspnet to generate Markdown for a Facility Service Definition.</description>
     <copyright>Copyright 2017 Ed Ball</copyright>
     <projectUrl>https://github.com/FacilityApi/FacilityAspNet</projectUrl>
     <licenseUrl>https://raw.githubusercontent.com/FacilityApi/FacilityAspNet/master/LICENSE</licenseUrl>
