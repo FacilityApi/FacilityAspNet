@@ -22,7 +22,7 @@ namespace Facility.CodeGen.AspNet
 		public string ApiNamespaceName { get; set; }
 
 		/// <summary>
-		/// Generates the APS.NET controller.
+		/// Generates the ASP.NET controller.
 		/// </summary>
 		protected override CodeGenOutput GenerateOutputCore(ServiceInfo serviceInfo)
 		{
