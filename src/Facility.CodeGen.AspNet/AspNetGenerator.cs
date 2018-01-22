@@ -22,6 +22,11 @@ namespace Facility.CodeGen.AspNet
 		public string ApiNamespaceName { get; set; }
 
 		/// <summary>
+		/// The target framework (optional, defaults to webapi).
+		/// </summary>
+		public TargetFramework Target { get; set; }
+
+		/// <summary>
 		/// Generates the ASP.NET controller.
 		/// </summary>
 		protected override CodeGenOutput GenerateOutputCore(ServiceInfo serviceInfo)
@@ -42,8 +47,8 @@ namespace Facility.CodeGen.AspNet
 					"System.Net.Http",
 					"System.Threading",
 					"System.Threading.Tasks",
-					"System.Web.Http",
 					"Facility.Core",
+					Target == TargetFramework.WebApi ? "System.Web.Http" : "Microsoft.AspNetCore.Mvc",
 					apiNamespaceName
 				};
 				CSharpUtility.WriteUsings(code, usings, namespaceName);

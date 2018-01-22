@@ -43,6 +43,7 @@
     </Compile>
     <Compile Include="AspNetGenerator.cs" />
     <Compile Include="CSharpUtility.cs" />
+    <Compile Include="TargetFramework.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
