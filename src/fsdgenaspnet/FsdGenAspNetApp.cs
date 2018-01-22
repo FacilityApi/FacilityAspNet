@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ArgsReading;
 using Facility.CodeGen.AspNet;
 using Facility.CodeGen.Console;
@@ -24,6 +25,8 @@ namespace fsdgenaspnet
 			"      The namespace used by the generated code.",
 			"   --apinamespace <name>",
 			"      The namespace used by the API class library.",
+			"   --target (webapi|core)",
+			"      The target framework to write code against. (default `webapi`)",
 		};
 
 		protected override CodeGenerator CreateGenerator(ArgsReader args)
@@ -32,7 +35,22 @@ namespace fsdgenaspnet
 			{
 				NamespaceName = args.ReadOption("namespace"),
 				ApiNamespaceName = args.ReadOption("apinamespace"),
+				Target = ReadTargetOption(args),
 			};
+		}
+
+		public static TargetFramework ReadTargetOption(ArgsReader args)
+		{
+			string value = args.ReadOption("target");
+
+			if (value == null)
+				return TargetFramework.WebApi;
+
+			TargetFramework result;
+			if (!Enum.TryParse(value, ignoreCase: true, result: out result))
+				throw new ArgsReaderException($"Invalid target '{value}'. (Should be 'webapi' or 'core'.)");
+
+			return result;
 		}
 	}
 }
