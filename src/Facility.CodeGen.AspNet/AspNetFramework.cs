@@ -1,9 +1,9 @@
 namespace Facility.CodeGen.AspNet
 {
 	/// <summary>
-	/// Used to determine which version of the framework the code should be built for.
+	/// Used to determine which version of ASP.NET the code should be built for.
 	/// </summary>
-	public enum TargetFramework
+	public enum AspNetFramework
 	{
 		/// <summary>
 		/// Target ASP.NET Web API 2.
@@ -11,7 +11,7 @@ namespace Facility.CodeGen.AspNet
 		WebApi,
 
 		/// <summary>
-		/// Build for ASP.NET Core 2.0.
+		/// Target ASP.NET Core 2.0.
 		/// </summary>
 		Core,
 	}
