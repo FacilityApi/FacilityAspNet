@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{A219E328-B15A-41FF-BAA5-5F46679EF9C8}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,21 +11,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{A219E328-B
 		appveyor.yml = appveyor.yml
 		build.cake = build.cake
 		build.ps1 = build.ps1
+		build.sh = build.sh
+		CONTRIBUTING.md = CONTRIBUTING.md
 		LICENSE = LICENSE
 		README.md = README.md
-		SolutionInfo.cs = SolutionInfo.cs
+		SolutionInfo.props = SolutionInfo.props
+		VersionHistory.md = VersionHistory.md
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fsdgenaspnet", "src\fsdgenaspnet\fsdgenaspnet.csproj", "{51A2CA25-1872-4928-AA41-320AA74D4223}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility.CodeGen.AspNet", "src\Facility.CodeGen.AspNet\Facility.CodeGen.AspNet.csproj", "{95A8E40E-F3EC-4299-B6C5-42433CCDD296}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility.CodeGen.AspNet.UnitTests", "tests\Facility.CodeGen.AspNet.UnitTests\Facility.CodeGen.AspNet.UnitTests.csproj", "{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{C82BFA69-5C83-4F83-B74F-6F5176554225}"
 	ProjectSection(SolutionItems) = preProject
 		example\ExampleApi.fsd = example\ExampleApi.fsd
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facility.CodeGen.AspNet", "src\Facility.CodeGen.AspNet\Facility.CodeGen.AspNet.csproj", "{6E4FEE8C-A8EC-4470-816C-ED96DB08D884}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fsdgenaspnet", "src\fsdgenaspnet\fsdgenaspnet.csproj", "{400C9804-B95F-4285-9E0B-17DE5B13165D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facility.CodeGen.AspNet.UnitTests", "tests\Facility.CodeGen.AspNet.UnitTests\Facility.CodeGen.AspNet.UnitTests.csproj", "{7C1E2BF3-E09F-453B-9AAF-3B6D3C713106}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,20 +36,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{51A2CA25-1872-4928-AA41-320AA74D4223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51A2CA25-1872-4928-AA41-320AA74D4223}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51A2CA25-1872-4928-AA41-320AA74D4223}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51A2CA25-1872-4928-AA41-320AA74D4223}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95A8E40E-F3EC-4299-B6C5-42433CCDD296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{95A8E40E-F3EC-4299-B6C5-42433CCDD296}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95A8E40E-F3EC-4299-B6C5-42433CCDD296}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{95A8E40E-F3EC-4299-B6C5-42433CCDD296}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A4AA6E8A-D919-4CF8-AFB2-D1970FD9C199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E4FEE8C-A8EC-4470-816C-ED96DB08D884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E4FEE8C-A8EC-4470-816C-ED96DB08D884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E4FEE8C-A8EC-4470-816C-ED96DB08D884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E4FEE8C-A8EC-4470-816C-ED96DB08D884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{400C9804-B95F-4285-9E0B-17DE5B13165D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400C9804-B95F-4285-9E0B-17DE5B13165D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400C9804-B95F-4285-9E0B-17DE5B13165D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400C9804-B95F-4285-9E0B-17DE5B13165D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C1E2BF3-E09F-453B-9AAF-3B6D3C713106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C1E2BF3-E09F-453B-9AAF-3B6D3C713106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C1E2BF3-E09F-453B-9AAF-3B6D3C713106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C1E2BF3-E09F-453B-9AAF-3B6D3C713106}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F4B8E98-2AE0-4191-86AE-28F3FE05E9A5}
 	EndGlobalSection
 EndGlobal

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Net.Http;
 using Facility.Definition;
 using Facility.Definition.CodeGen;
 using Facility.Definition.Http;
@@ -82,17 +81,7 @@ namespace Facility.CodeGen.AspNet
 
 		private static string GetHttpMethodAttribute(HttpMethodInfo httpMethodInfo)
 		{
-			if (httpMethodInfo.Method == HttpMethod.Delete || httpMethodInfo.Method == HttpMethod.Get ||
-				httpMethodInfo.Method == HttpMethod.Head || httpMethodInfo.Method == HttpMethod.Options ||
-				httpMethodInfo.Method == new HttpMethod("PATCH") ||
-				httpMethodInfo.Method == HttpMethod.Post || httpMethodInfo.Method == HttpMethod.Put)
-			{
-				return "Http" + CodeGenUtility.Capitalize(httpMethodInfo.Method.ToString().ToLowerInvariant());
-			}
-			else
-			{
-				return $"AcceptVerbs(\"{httpMethodInfo.Method}\")";
-			}
+			return "Http" + CodeGenUtility.Capitalize(httpMethodInfo.Method.ToLowerInvariant());
 		}
 	}
 }
