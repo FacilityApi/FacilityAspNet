@@ -34,9 +34,9 @@ namespace Facility.CodeGen.AspNet
 			string apiNamespaceName = ApiNamespaceName ?? CSharpUtility.GetNamespaceName(serviceInfo);
 			string namespaceName = NamespaceName ?? $"{apiNamespaceName}.Controllers";
 			string controllerName = $"{CodeGenUtility.Capitalize(serviceName)}Controller";
-			var httpServiceInfo = new HttpServiceInfo(serviceInfo);
+			var httpServiceInfo = HttpServiceInfo.Create(serviceInfo);
 
-			return new CodeGenOutput(CreateNamedText($"{controllerName}{CSharpUtility.FileExtension}", code =>
+			return new CodeGenOutput(CreateDefinitionText($"{controllerName}{CSharpUtility.FileExtension}", code =>
 			{
 				CSharpUtility.WriteFileHeader(code, GeneratorName);
 
