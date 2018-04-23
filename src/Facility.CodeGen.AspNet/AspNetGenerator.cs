@@ -36,7 +36,7 @@ namespace Facility.CodeGen.AspNet
 			string controllerName = $"{CodeGenUtility.Capitalize(serviceName)}Controller";
 			var httpServiceInfo = HttpServiceInfo.Create(serviceInfo);
 
-			return new CodeGenOutput(CreateDefinitionText($"{controllerName}{CSharpUtility.FileExtension}", code =>
+			return new CodeGenOutput(CreateFile($"{controllerName}{CSharpUtility.FileExtension}", code =>
 			{
 				CSharpUtility.WriteFileHeader(code, GeneratorName);
 
