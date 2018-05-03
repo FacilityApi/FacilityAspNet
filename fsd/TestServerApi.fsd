@@ -1,0 +1,11 @@
+service TestServerApi
+{
+	[http(method: get, path: "/")]
+	method getApiInfo
+	{
+	}:
+	{
+		service: string;
+		platform: string;
+	}
+}

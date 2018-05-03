@@ -1,5 +1,6 @@
 #addin nuget:?package=Cake.Git&version=0.17.0
 #addin nuget:?package=Cake.XmlDocMarkdown&version=1.4.0
+#tool nuget:?package=fsdgencsharp&version=2.0.1-alpha1
 
 using System.Text.RegularExpressions;
 
@@ -23,9 +24,14 @@ var buildBotPassword = EnvironmentVariable("BUILD_BOT_PASSWORD");
 var trigger = EnvironmentVariable("APPVEYOR_REPO_TAG_NAME");;
 var buildBranch = EnvironmentVariable("APPVEYOR_REPO_BRANCH");
 
-void CodeGen(bool verify)
+void PreCodeGen(bool verify)
 {
-	ExecuteCodeGen("example/ExampleApi.fsd example/aspnet/", verify);
+	ExecuteCodeGen(Context.Tools.Resolve("fsdgencsharp.exe").ToString(), "fsd/TestServerApi.fsd tools/Facility.AspNetCore.TestServer/TestServerApi/ --clean", verify);
+}
+
+void PostCodeGen(bool verify)
+{
+	ExecuteCodeGen(codeGenExe, "example/ExampleApi.fsd example/aspnet/", verify);
 }
 
 Task("Clean")
@@ -49,13 +55,21 @@ Task("Rebuild")
 	.IsDependentOn("Clean")
 	.IsDependentOn("Build");
 
+Task("PreCodeGen")
+	.Does(() => PreCodeGen(verify: false));
+
 Task("CodeGen")
+	.IsDependentOn("PreCodeGen")
 	.IsDependentOn("Build")
-	.Does(() => CodeGen(verify: false));
+	.Does(() => PostCodeGen(verify: false));
+
+Task("VerifyPreCodeGen")
+	.Does(() => PreCodeGen(verify: true));
 
 Task("VerifyCodeGen")
+	.IsDependentOn("VerifyPreCodeGen")
 	.IsDependentOn("Build")
-	.Does(() => CodeGen(verify: true));
+	.Does(() => PostCodeGen(verify: true));
 
 Task("Test")
 	.IsDependentOn("VerifyCodeGen")
@@ -152,10 +166,9 @@ Task("Publish")
 Task("Default")
 	.IsDependentOn("Test");
 
-void ExecuteCodeGen(string args, bool verify)
+void ExecuteCodeGen(string exePath, string args, bool verify)
 {
 	Information(args);
-	string exePath = codeGenExe;
 	if (IsRunningOnUnix())
 	{
 		args = exePath + " " + args;

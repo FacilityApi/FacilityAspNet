@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Facility.AspNetCore.TestServer": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:65239/"
+    }
+  }
+}

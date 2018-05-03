@@ -9,5 +9,4 @@ release/
 *.ncrunchproject
 *.ncrunchsolution
 *.user
-launchSettings.json
 nCrunchTemp*

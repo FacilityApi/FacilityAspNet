@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		example\ExampleApi.fsd = example\ExampleApi.fsd
 		LICENSE = LICENSE
 		README.md = README.md
+		fsd\TestServerApi.fsd = fsd\TestServerApi.fsd
 		VersionHistory.md = VersionHistory.md
 	EndProjectSection
 EndProject
@@ -25,6 +26,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fsdgenaspnet", "src\fsdgenaspnet\fsdgenaspnet.csproj", "{400C9804-B95F-4285-9E0B-17DE5B13165D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facility.CodeGen.AspNet.UnitTests", "tests\Facility.CodeGen.AspNet.UnitTests\Facility.CodeGen.AspNet.UnitTests.csproj", "{7C1E2BF3-E09F-453B-9AAF-3B6D3C713106}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility.AspNetCore.TestServer", "tools\Facility.AspNetCore.TestServer\Facility.AspNetCore.TestServer.csproj", "{69B4C997-8EC0-490E-9FEF-0950359FF0F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +47,10 @@ Global
 		{7C1E2BF3-E09F-453B-9AAF-3B6D3C713106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C1E2BF3-E09F-453B-9AAF-3B6D3C713106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C1E2BF3-E09F-453B-9AAF-3B6D3C713106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69B4C997-8EC0-490E-9FEF-0950359FF0F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B4C997-8EC0-490E-9FEF-0950359FF0F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B4C997-8EC0-490E-9FEF-0950359FF0F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B4C997-8EC0-490E-9FEF-0950359FF0F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
