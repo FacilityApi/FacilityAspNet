@@ -11,7 +11,7 @@ internal static class Build
 {
 	public static int Main(string[] args) => BuildRunner.Execute(args, build =>
 	{
-		var codegen = "fsdgen___";
+		var codegen = "fsdgenaspnet";
 
 		var dotNetTools = new DotNetTools(Path.Combine("tools", "bin")).AddSource(Path.Combine("tools", "bin"));
 
@@ -57,7 +57,7 @@ internal static class Build
 
 			string verifyOption = verify ? "--verify" : null;
 
-			RunApp(toolPath, "___", "___", "--newline", "lf", verifyOption);
+			RunApp(toolPath, "example/ExampleApi.fsd", "example/aspnet/", "--newline", "lf", verifyOption);
 		}
 	});
 }

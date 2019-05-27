@@ -9,15 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		appveyor.yml = appveyor.yml
-		build.cake = build.cake
-		build.ps1 = build.ps1
 		build.sh = build.sh
 		CONTRIBUTING.md = CONTRIBUTING.md
-		Directory.Build.props = Directory.Build.props
-		example\ExampleApi.fsd = example\ExampleApi.fsd
 		LICENSE = LICENSE
 		README.md = README.md
-		fsd\TestServerApi.fsd = fsd\TestServerApi.fsd
 		VersionHistory.md = VersionHistory.md
 	EndProjectSection
 EndProject
@@ -27,7 +22,24 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fsdgenaspnet", "src\fsdgena
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facility.CodeGen.AspNet.UnitTests", "tests\Facility.CodeGen.AspNet.UnitTests\Facility.CodeGen.AspNet.UnitTests.csproj", "{7C1E2BF3-E09F-453B-9AAF-3B6D3C713106}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility.AspNetCore.TestServer", "tools\Facility.AspNetCore.TestServer\Facility.AspNetCore.TestServer.csproj", "{69B4C997-8EC0-490E-9FEF-0950359FF0F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facility.AspNetCore.TestServer", "tools\Facility.AspNetCore.TestServer\Facility.AspNetCore.TestServer.csproj", "{69B4C997-8EC0-490E-9FEF-0950359FF0F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{6D109A04-AF8D-4C1C-81C9-5E0BE755CD80}"
+	ProjectSection(SolutionItems) = preProject
+		tools\Directory.Build.props = tools\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AD807871-81A0-4582-A9B5-61F38D51DE0C}"
+	ProjectSection(SolutionItems) = preProject
+		tests\Directory.Build.props = tests\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4119B6CE-7DCC-4554-846F-176407A2ACEE}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "tools\Build\Build.csproj", "{17E62090-1E22-476E-8D36-58FDF6A5B94C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,9 +63,18 @@ Global
 		{69B4C997-8EC0-490E-9FEF-0950359FF0F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69B4C997-8EC0-490E-9FEF-0950359FF0F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69B4C997-8EC0-490E-9FEF-0950359FF0F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17E62090-1E22-476E-8D36-58FDF6A5B94C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17E62090-1E22-476E-8D36-58FDF6A5B94C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17E62090-1E22-476E-8D36-58FDF6A5B94C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17E62090-1E22-476E-8D36-58FDF6A5B94C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6D109A04-AF8D-4C1C-81C9-5E0BE755CD80} = {A219E328-B15A-41FF-BAA5-5F46679EF9C8}
+		{AD807871-81A0-4582-A9B5-61F38D51DE0C} = {A219E328-B15A-41FF-BAA5-5F46679EF9C8}
+		{4119B6CE-7DCC-4554-846F-176407A2ACEE} = {A219E328-B15A-41FF-BAA5-5F46679EF9C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F4B8E98-2AE0-4191-86AE-28F3FE05E9A5}

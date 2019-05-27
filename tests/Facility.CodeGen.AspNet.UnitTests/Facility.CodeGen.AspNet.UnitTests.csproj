@@ -2,12 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="*.ncrunchproject" />
-  </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="..\..\example\ExampleApi.fsd" Link="ExampleApi.fsd" />

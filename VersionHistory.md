@@ -6,7 +6,7 @@ Describe changes here when they're committed to the `master` branch. To publish,
 
 Prefix the description of the change with `[major]`, `[minor]`, or `[patch]` in accordance with [Semantic Versioning](https://semver.org/).
 
-* [major] Upgrade to .NET Standard 2.0 and .NET 4.7. Upgrade NuGet dependencies.
+* [major] Upgrade to .NET Standard 2.0. Upgrade NuGet dependencies.
 
 ## Released
 

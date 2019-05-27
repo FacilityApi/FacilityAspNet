@@ -2,25 +2,11 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net47</TargetFramework>
-    <FrameworkPathOverride Condition="'$(MONO_ROOT)' != ''">$(MONO_ROOT)/lib/mono/4.7-api/</FrameworkPathOverride>
-    <LangVersion>latest</LangVersion>
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <NoWarn>$(NoWarn);1591</NoWarn>
-    <DebugType>portable</DebugType>
-    <DebugSymbols>True</DebugSymbols>
-    <Description>A tool that generates ASP.NET for a Facility Service Definition.</Description>
-    <PackageTags>Facility FSD ASP.NET CodeGen</PackageTags>
-    <IsTool>True</IsTool>
-    <AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Description>A tool that generates an ASP.NET controller for a Facility Service Definition.</Description>
+    <PackageTags>Facility FSD C# CodeGen</PackageTags>
+    <PackAsTool>True</PackAsTool>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="bin\$(Configuration)\*.dll">
-      <PackagePath>tools/</PackagePath>
-      <Pack>true</Pack>
-    </None>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Facility.CodeGen.Console" Version="2.0.1-alpha5" />
@@ -29,14 +15,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Facility.CodeGen.AspNet\Facility.CodeGen.AspNet.csproj" />
   </ItemGroup>
-
-  <ItemDefinitionGroup>
-    <PackageReference>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <ProjectReference>
-      <PrivateAssets>all</PrivateAssets>
-    </ProjectReference>
-  </ItemDefinitionGroup>
 
 </Project>
