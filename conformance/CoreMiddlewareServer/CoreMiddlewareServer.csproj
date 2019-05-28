@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\ConformanceTests.json" Link="ConformanceTests.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Facility.ConformanceApi" Version="2.0.2-alpha8" />
+    <PackageReference Include="Facility.Core" Version="2.0.2-alpha8" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>
