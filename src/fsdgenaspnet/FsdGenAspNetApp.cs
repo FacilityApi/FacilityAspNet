@@ -23,7 +23,7 @@ namespace fsdgenaspnet
 		{
 			"   --namespace <name>",
 			"      The namespace used by the generated code.",
-			"   --apinamespace <name>",
+			"   --api-namespace <name>",
 			"      The namespace used by the API class library.",
 			"   --target (webapi|core)",
 			"      The target ASP.NET framework (default webapi).",
@@ -34,7 +34,7 @@ namespace fsdgenaspnet
 			return new AspNetGenerator
 			{
 				NamespaceName = args.ReadOption("namespace"),
-				ApiNamespaceName = args.ReadOption("apinamespace"),
+				ApiNamespaceName = args.ReadOption("api-namespace"),
 				Target = ReadTargetOption(args),
 			};
 		}
