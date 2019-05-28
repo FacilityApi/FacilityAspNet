@@ -9,10 +9,10 @@ namespace Facility.CodeGen.AspNet.UnitTests
 	public sealed class AspNetGeneratorTests
 	{
 		[Test]
-		public void GenerateExampleApiSuccess()
+		public void GenerateConformanceApiSuccess()
 		{
 			ServiceInfo service;
-			const string fileName = "Facility.CodeGen.AspNet.UnitTests.ExampleApi.fsd";
+			const string fileName = "Facility.CodeGen.AspNet.UnitTests.ConformanceApi.fsd";
 			var parser = new FsdParser();
 			var stream = GetType().GetTypeInfo().Assembly.GetManifestResourceStream(fileName);
 			Assert.IsNotNull(stream);
