@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <OutputType>Exe</OutputType>
+    <FrameworkPathOverride Condition="'$(MONO_ROOT)' != ''">$(MONO_ROOT)/lib/mono/4.7.2-api/</FrameworkPathOverride>
   </PropertyGroup>
 
   <ItemGroup>
