@@ -50,6 +50,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "conformance", "conformance"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiMiddlewareServer", "conformance\WebApiMiddlewareServer\WebApiMiddlewareServer.csproj", "{08EEFFD0-D7C8-4020-8D8B-C78DDE36A7B3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWebApiShimServer", "conformance\CoreWebApiShimServer\CoreWebApiShimServer.csproj", "{1D18D8D8-E9CD-4B68-918C-D14E31BBB622}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,10 @@ Global
 		{08EEFFD0-D7C8-4020-8D8B-C78DDE36A7B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08EEFFD0-D7C8-4020-8D8B-C78DDE36A7B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08EEFFD0-D7C8-4020-8D8B-C78DDE36A7B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D18D8D8-E9CD-4B68-918C-D14E31BBB622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D18D8D8-E9CD-4B68-918C-D14E31BBB622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D18D8D8-E9CD-4B68-918C-D14E31BBB622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D18D8D8-E9CD-4B68-918C-D14E31BBB622}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

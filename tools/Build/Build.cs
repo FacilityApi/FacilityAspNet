@@ -65,6 +65,8 @@ internal static class Build
 
 			RunApp(codegenToolPath, "conformance/ConformanceApi.fsd", "conformance/WebApiControllerServer/Controllers",
 				"--namespace", "WebApiControllerServer.Controllers", "--newline", "lf", verifyOption);
+			RunApp(codegenToolPath, "conformance/ConformanceApi.fsd", "conformance/CoreWebApiShimServer/Controllers",
+				"--namespace", "CoreWebApiShimServer.Controllers", "--target", "core", "--newline", "lf", verifyOption);
 		}
 	});
 }
