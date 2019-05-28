@@ -52,6 +52,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiMiddlewareServer", "c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWebApiShimServer", "conformance\CoreWebApiShimServer\CoreWebApiShimServer.csproj", "{1D18D8D8-E9CD-4B68-918C-D14E31BBB622}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreControllerServer", "conformance\CoreControllerServer\CoreControllerServer.csproj", "{70FF12AC-61E4-47E7-8469-44894E6D22ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{1D18D8D8-E9CD-4B68-918C-D14E31BBB622}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D18D8D8-E9CD-4B68-918C-D14E31BBB622}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D18D8D8-E9CD-4B68-918C-D14E31BBB622}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70FF12AC-61E4-47E7-8469-44894E6D22ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70FF12AC-61E4-47E7-8469-44894E6D22ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70FF12AC-61E4-47E7-8469-44894E6D22ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70FF12AC-61E4-47E7-8469-44894E6D22ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
