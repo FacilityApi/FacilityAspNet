@@ -45,6 +45,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "conformance", "conformance"
 	ProjectSection(SolutionItems) = preProject
 		conformance\ConformanceApi.fsd = conformance\ConformanceApi.fsd
 		conformance\ConformanceTests.json = conformance\ConformanceTests.json
+		conformance\Directory.Build.props = conformance\Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiMiddlewareServer", "conformance\WebApiMiddlewareServer\WebApiMiddlewareServer.csproj", "{08EEFFD0-D7C8-4020-8D8B-C78DDE36A7B3}"
