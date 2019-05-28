@@ -10,3 +10,4 @@ release/
 *.user
 nCrunchTemp*
 _ReSharper*
+launchSettings.json
