@@ -15,4 +15,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Facility.AspNetCore\Facility.AspNetCore.csproj" />
+  </ItemGroup>
+
 </Project>

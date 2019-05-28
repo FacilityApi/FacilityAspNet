@@ -2,7 +2,7 @@ using System;
 using Facility.Core.Http;
 using Microsoft.AspNetCore.Builder;
 
-namespace CoreMiddlewareServer
+namespace Facility.AspNetCore
 {
 	/// <summary>
 	/// ASP.NET Core extension methods for Facility.

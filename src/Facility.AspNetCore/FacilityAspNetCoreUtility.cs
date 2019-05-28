@@ -8,9 +8,9 @@ using Facility.Core.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 
-namespace CoreControllerServer
+namespace Facility.AspNetCore
 {
-	internal sealed class FacilityAspNetCoreUtility
+	public sealed class FacilityAspNetCoreUtility
 	{
 		public static HttpRequestMessage CreateHttpRequestMessage(HttpRequest httpRequest)
 		{

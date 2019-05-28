@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using Facility.AspNetCore;
 using Facility.ConformanceApi;
 using Facility.ConformanceApi.Http;
 using Facility.ConformanceApi.Testing;

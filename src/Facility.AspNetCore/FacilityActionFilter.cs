@@ -1,12 +1,11 @@
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace CoreControllerServer
+namespace Facility.AspNetCore
 {
-	internal sealed class FacilityActionFilter : ActionFilterAttribute, IAsyncExceptionFilter
+	public sealed class FacilityActionFilter : ActionFilterAttribute, IAsyncExceptionFilter
 	{
 		public override void OnActionExecuting(ActionExecutingContext context)
 		{

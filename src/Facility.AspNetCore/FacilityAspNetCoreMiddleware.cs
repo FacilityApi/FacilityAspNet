@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Facility.Core.Http;
 using Microsoft.AspNetCore.Http;
 
-namespace CoreMiddlewareServer
+namespace Facility.AspNetCore
 {
 	/// <summary>
 	/// ASP.NET Core middleware for a Facility service HTTP handler.
