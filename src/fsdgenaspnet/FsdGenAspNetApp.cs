@@ -29,15 +29,15 @@ namespace fsdgenaspnet
 			"      The target ASP.NET framework (default webapi).",
 		};
 
-		protected override CodeGenerator CreateGenerator(ArgsReader args)
-		{
-			return new AspNetGenerator
+		protected override CodeGenerator CreateGenerator() => new AspNetGenerator();
+
+		protected override FileGeneratorSettings CreateSettings(ArgsReader args) =>
+			new AspNetGeneratorSettings
 			{
 				NamespaceName = args.ReadOption("namespace"),
 				ApiNamespaceName = args.ReadOption("api-namespace"),
-				Target = ReadTargetOption(args),
+				TargetFramework = ReadTargetOption(args),
 			};
-		}
 
 		public static AspNetFramework ReadTargetOption(ArgsReader args)
 		{

@@ -6,10 +6,18 @@ using Facility.Definition.Http;
 namespace Facility.CodeGen.AspNet
 {
 	/// <summary>
-	/// Generates an APS.NET controller.
+	/// Generates an ASP.NET controller.
 	/// </summary>
 	public sealed class AspNetGenerator : CodeGenerator
 	{
+		/// <summary>
+		/// Generates an ASP.NET controller.
+		/// </summary>
+		/// <param name="settings">The settings.</param>
+		/// <returns>The number of updated files.</returns>
+		public static int GenerateAspNet(AspNetGeneratorSettings settings) =>
+			FileGenerator.GenerateFiles(new AspNetGenerator { GeneratorName = nameof(AspNetGenerator) }, settings);
+
 		/// <summary>
 		/// The name of the controller namespace (optional).
 		/// </summary>
@@ -23,12 +31,12 @@ namespace Facility.CodeGen.AspNet
 		/// <summary>
 		/// The target framework (optional, defaults to WebApi).
 		/// </summary>
-		public AspNetFramework Target { get; set; }
+		public AspNetFramework TargetFramework { get; set; }
 
 		/// <summary>
 		/// Generates the ASP.NET controller.
 		/// </summary>
-		protected override CodeGenOutput GenerateOutputCore(ServiceInfo serviceInfo)
+		public override CodeGenOutput GenerateOutput(ServiceInfo serviceInfo)
 		{
 			string serviceName = serviceInfo.Name;
 			string apiNamespaceName = ApiNamespaceName ?? CSharpUtility.GetNamespaceName(serviceInfo);
@@ -47,7 +55,7 @@ namespace Facility.CodeGen.AspNet
 					"System.Threading",
 					"System.Threading.Tasks",
 					"Facility.Core",
-					Target == AspNetFramework.WebApi ? "System.Web.Http" : "Microsoft.AspNetCore.Mvc",
+					TargetFramework == AspNetFramework.WebApi ? "System.Web.Http" : "Microsoft.AspNetCore.Mvc",
 					apiNamespaceName
 				};
 				CSharpUtility.WriteUsings(code, usings, namespaceName);
@@ -77,6 +85,17 @@ namespace Facility.CodeGen.AspNet
 					}
 				}
 			}));
+		}
+
+		/// <summary>
+		/// Applies generator-specific settings.
+		/// </summary>
+		public override void ApplySettings(FileGeneratorSettings settings)
+		{
+			var aspNetSettings = (AspNetGeneratorSettings) settings;
+			NamespaceName = aspNetSettings.NamespaceName;
+			ApiNamespaceName = aspNetSettings.ApiNamespaceName;
+			TargetFramework = aspNetSettings.TargetFramework;
 		}
 
 		private static string GetHttpMethodAttribute(HttpMethodInfo httpMethodInfo)
