@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Facility.AspNetCore\Facility.AspNetCore.csproj" />
     <ProjectReference Include="..\..\src\Facility.CodeGen.AspNet\Facility.CodeGen.AspNet.csproj" />
   </ItemGroup>
 
