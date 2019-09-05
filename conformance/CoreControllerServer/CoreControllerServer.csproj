@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Facility.ConformanceApi" Version="2.0.2-alpha8" />
-    <PackageReference Include="Facility.Core" Version="2.0.2-alpha8" />
+    <PackageReference Include="Facility.ConformanceApi" Version="2.0.2" />
+    <PackageReference Include="Facility.Core" Version="2.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
   </ItemGroup>

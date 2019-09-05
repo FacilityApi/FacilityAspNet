@@ -11,7 +11,7 @@ internal static class Build
 {
 	public static int Main(string[] args) => BuildRunner.Execute(args, build =>
 	{
-		var conformanceVersion = "2.0.2-alpha8";
+		var conformanceVersion = "2.0.2";
 
 		var codegen = "fsdgenaspnet";
 

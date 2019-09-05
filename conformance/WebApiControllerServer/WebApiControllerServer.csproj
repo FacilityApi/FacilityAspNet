@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Facility.ConformanceApi" Version="2.0.2-alpha8" />
-    <PackageReference Include="Facility.Core" Version="2.0.2-alpha8" />
+    <PackageReference Include="Facility.ConformanceApi" Version="2.0.2" />
+    <PackageReference Include="Facility.Core" Version="2.0.2" />
     <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost" Version="5.2.7" />
   </ItemGroup>
 
