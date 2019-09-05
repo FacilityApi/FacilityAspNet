@@ -9,7 +9,7 @@
     <DebugType>portable</DebugType>
     <DebugSymbols>True</DebugSymbols>
     <GitHubOrganization>FacilityApi</GitHubOrganization>
-    <RepositoryName>RepoName</RepositoryName>
+    <RepositoryName>FacilityAspNet</RepositoryName>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/$(GitHubOrganization)/$(RepositoryName)</PackageProjectUrl>
     <PackageReleaseNotes>https://github.com/$(GitHubOrganization)/$(RepositoryName)/blob/master/VersionHistory.md#released</PackageReleaseNotes>
