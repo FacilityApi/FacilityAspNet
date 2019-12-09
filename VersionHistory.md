@@ -8,6 +8,10 @@ Prefix the description of the change with `[major]`, `[minor]`, or `[patch]` in 
 
 ## Released
 
+### 2.0.2
+
+* [patch] Depend on `Microsoft.AspNetCore.Mvc.Core` instead of `Microsoft.AspNetCore.Mvc`.
+
 ### 2.0.1
 
 * [major] Upgrade to .NET Standard 2.0. Upgrade NuGet dependencies.
