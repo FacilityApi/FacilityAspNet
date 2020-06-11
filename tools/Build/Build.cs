@@ -45,6 +45,7 @@ internal static class Build
 
 			var verifyOption = verify ? "--verify" : null;
 
+			RunDotNet("tool", "restore");
 			RunDotNet("tool", "run", "FacilityConformance", "fsd", "--output", "conformance/ConformanceApi.fsd", verifyOption);
 			RunDotNet("tool", "run", "FacilityConformance", "json", "--output", "conformance/ConformanceTests.json", verifyOption);
 
