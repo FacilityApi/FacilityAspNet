@@ -79,5 +79,11 @@ namespace CoreWebApiShimServer.Controllers
 		{
 			return GetServiceHttpHandler().TryHandleMixedAsync(httpRequest, cancellationToken);
 		}
+
+		[HttpPost, Route("required")]
+		public Task<HttpResponseMessage> Required(HttpRequestMessage httpRequest, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			return GetServiceHttpHandler().TryHandleRequiredAsync(httpRequest, cancellationToken);
+		}
 	}
 }

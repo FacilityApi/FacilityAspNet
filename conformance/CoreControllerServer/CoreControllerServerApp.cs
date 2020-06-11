@@ -36,7 +36,7 @@ namespace CoreControllerServer
 		private static IReadOnlyList<ConformanceTestInfo> LoadTests()
 		{
 			using (var testsJsonReader = new StreamReader(typeof(CoreControllerServerApp).Assembly.GetManifestResourceStream("CoreControllerServer.ConformanceTests.json")))
-				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests;
+				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests!;
 		}
 	}
 }

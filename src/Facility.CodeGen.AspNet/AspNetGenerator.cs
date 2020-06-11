@@ -21,12 +21,12 @@ namespace Facility.CodeGen.AspNet
 		/// <summary>
 		/// The name of the controller namespace (optional).
 		/// </summary>
-		public string NamespaceName { get; set; }
+		public string? NamespaceName { get; set; }
 
 		/// <summary>
 		/// The name of the API namespace (optional).
 		/// </summary>
-		public string ApiNamespaceName { get; set; }
+		public string? ApiNamespaceName { get; set; }
 
 		/// <summary>
 		/// The target framework (optional, defaults to WebApi).
@@ -38,17 +38,17 @@ namespace Facility.CodeGen.AspNet
 		/// </summary>
 		public override CodeGenOutput GenerateOutput(ServiceInfo serviceInfo)
 		{
-			string serviceName = serviceInfo.Name;
-			string apiNamespaceName = ApiNamespaceName ?? CSharpUtility.GetNamespaceName(serviceInfo);
-			string namespaceName = NamespaceName ?? $"{apiNamespaceName}.Controllers";
-			string controllerName = $"{CodeGenUtility.Capitalize(serviceName)}Controller";
+			var serviceName = serviceInfo.Name;
+			var apiNamespaceName = ApiNamespaceName ?? CSharpUtility.GetNamespaceName(serviceInfo);
+			var namespaceName = NamespaceName ?? $"{apiNamespaceName}.Controllers";
+			var controllerName = $"{CodeGenUtility.Capitalize(serviceName)}Controller";
 			var httpServiceInfo = HttpServiceInfo.Create(serviceInfo);
 
 			return new CodeGenOutput(CreateFile($"{controllerName}{CSharpUtility.FileExtension}", code =>
 			{
-				CSharpUtility.WriteFileHeader(code, GeneratorName);
+				CSharpUtility.WriteFileHeader(code, GeneratorName ?? "");
 
-				List<string> usings = new List<string>
+				var usings = new List<string>
 				{
 					"System",
 					"System.Net.Http",
@@ -66,14 +66,14 @@ namespace Facility.CodeGen.AspNet
 				code.WriteLine($"namespace {namespaceName}");
 				using (code.Block())
 				{
-					CSharpUtility.WriteCodeGenAttribute(code, GeneratorName);
+					CSharpUtility.WriteCodeGenAttribute(code, GeneratorName ?? "");
 					code.WriteLine($"public partial class {controllerName}");
 					using (code.Block())
 					{
 						foreach (var httpMethodInfo in httpServiceInfo.Methods)
 						{
 							var methodInfo = httpMethodInfo.ServiceMethod;
-							string methodName = CodeGenUtility.Capitalize(methodInfo.Name);
+							var methodName = CodeGenUtility.Capitalize(methodInfo.Name);
 
 							code.WriteLineSkipOnce();
 							CSharpUtility.WriteObsoleteAttribute(code, methodInfo);

@@ -35,7 +35,7 @@ namespace WebApiMiddlewareServer
 		private static IReadOnlyList<ConformanceTestInfo> LoadTests()
 		{
 			using (var testsJsonReader = new StreamReader(typeof(WebApiMiddlewareServerApp).Assembly.GetManifestResourceStream("WebApiMiddlewareServer.ConformanceTests.json")))
-				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests;
+				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests!;
 		}
 	}
 }

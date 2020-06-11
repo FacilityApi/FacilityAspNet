@@ -29,7 +29,7 @@ namespace Facility.AspNetCore
 		{
 			var httpRequestMessage = FacilityAspNetCoreUtility.CreateHttpRequestMessage(httpContext.Request);
 
-			HttpResponseMessage httpResponseMessage;
+			HttpResponseMessage? httpResponseMessage;
 			try
 			{
 				httpResponseMessage = await m_handler.TryHandleHttpRequestAsync(httpRequestMessage, httpContext.RequestAborted).ConfigureAwait(false);
@@ -50,7 +50,7 @@ namespace Facility.AspNetCore
 			}
 		}
 
-		readonly RequestDelegate m_next;
-		readonly T m_handler;
+		private readonly RequestDelegate m_next;
+		private readonly T m_handler;
 	}
 }

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "facilityconformance": {
+      "version": "2.4.0",
+      "commands": [
+        "FacilityConformance"
+      ]
+    }
+  }
+}

@@ -3,13 +3,12 @@ using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Facility.ConformanceApi;
+using System.Web.Http;
 using Facility.Core;
-using Microsoft.AspNetCore.Mvc;
 
 #pragma warning disable 1591 // missing XML comment
 
-namespace CoreControllerServer.Controllers
+namespace Facility.ConformanceApi.Controllers
 {
 	[System.CodeDom.Compiler.GeneratedCode("fsdgenaspnet", "")]
 	public partial class ConformanceApiController

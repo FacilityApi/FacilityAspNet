@@ -53,7 +53,7 @@
       },
       "error": {
         "code": "InvalidRequest",
-        "message": "The widget name is required."
+        "message": "'widget' is invalid: 'name' is required."
       }
     },
     {
@@ -62,7 +62,7 @@
       "request": {},
       "error": {
         "code": "InvalidRequest",
-        "message": "The request field 'widget' is required."
+        "message": "'widget' is required."
       }
     },
     {
@@ -473,6 +473,148 @@
       "response": {
         "header": "string",
         "empty": true
+      }
+    },
+    {
+      "test": "requiredSuccess",
+      "method": "required",
+      "request": {
+        "query": "string",
+        "normal": "string"
+      },
+      "response": {
+        "normal": "string"
+      }
+    },
+    {
+      "test": "requiredNoQuery",
+      "method": "required",
+      "request": {
+        "normal": "string"
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'query' is required."
+      }
+    },
+    {
+      "test": "requiredNoNormal",
+      "method": "required",
+      "request": {
+        "query": "string"
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'normal' is required."
+      }
+    },
+    {
+      "test": "requiredSuccessWidgets",
+      "method": "required",
+      "request": {
+        "query": "string",
+        "normal": "string",
+        "widget": { "name": "string" },
+        "widgets": [{ "name": "string" }],
+        "widgetMatrix": [[{ "name": "string" }]],
+        "widgetResult": { "value": { "name": "string" } },
+        "widgetResults": [{ "value": { "name": "string" } }],
+        "widgetMap": { "name": { "name": "string" } },
+        "hasWidget": { "widget": { "name": "string" } }
+      },
+      "response": {
+        "normal": "string"
+      }
+    },
+    {
+      "test": "requiredNoNameWidget",
+      "method": "required",
+      "request": {
+        "query": "string",
+        "normal": "string",
+        "widget": {}
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'widget' is invalid: 'name' is required."
+      }
+    },
+    {
+      "test": "requiredNoNameWidgets",
+      "method": "required",
+      "request": {
+        "query": "string",
+        "normal": "string",
+        "widgets": [{ "name": "string" }, {}]
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'widgets[1]' is invalid: 'name' is required."
+      }
+    },
+    {
+      "test": "requiredNoNameWidgetMatrix",
+      "method": "required",
+      "request": {
+        "query": "string",
+        "normal": "string",
+        "widgetMatrix": [[{}]]
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'widgetMatrix[0][0]' is invalid: 'name' is required."
+      }
+    },
+    {
+      "test": "requiredNoNameWidgetResult",
+      "method": "required",
+      "request": {
+        "query": "string",
+        "normal": "string",
+        "widgetResult": { "value": {} }
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'widgetResult' is invalid: 'name' is required."
+      }
+    },
+    {
+      "test": "requiredNoNameWidgetResults",
+      "method": "required",
+      "request": {
+        "query": "string",
+        "normal": "string",
+        "widgetResults": [{ "value": {} }]
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'widgetResults[0]' is invalid: 'name' is required."
+      }
+    },
+    {
+      "test": "requiredNoNameWidgetMap",
+      "method": "required",
+      "request": {
+        "query": "string",
+        "normal": "string",
+        "widgetMap": { "key": {} }
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'widgetMap.key' is invalid: 'name' is required."
+      }
+    },
+    {
+      "test": "requiredNoNameHasWidget",
+      "method": "required",
+      "request": {
+        "query": "string",
+        "normal": "string",
+        "hasWidget": { "widget": {} }
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'hasWidget' is invalid: 'widget' is invalid: 'name' is required."
       }
     }
   ]

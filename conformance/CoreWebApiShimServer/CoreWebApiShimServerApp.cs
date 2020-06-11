@@ -34,7 +34,7 @@ namespace CoreWebApiShimServer
 		private static IReadOnlyList<ConformanceTestInfo> LoadTests()
 		{
 			using (var testsJsonReader = new StreamReader(typeof(CoreWebApiShimServerApp).Assembly.GetManifestResourceStream("CoreWebApiShimServer.ConformanceTests.json")))
-				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests;
+				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests!;
 		}
 	}
 }

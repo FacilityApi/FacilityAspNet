@@ -10,12 +10,12 @@ namespace Facility.CodeGen.AspNet
 		/// <summary>
 		/// The name of the controller namespace (optional).
 		/// </summary>
-		public string NamespaceName { get; set; }
+		public string? NamespaceName { get; set; }
 
 		/// <summary>
 		/// The name of the API namespace (optional).
 		/// </summary>
-		public string ApiNamespaceName { get; set; }
+		public string? ApiNamespaceName { get; set; }
 
 		/// <summary>
 		/// The target framework (optional, defaults to WebApi).

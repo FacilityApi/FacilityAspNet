@@ -37,7 +37,7 @@ namespace WebApiControllerServer
 		private static IReadOnlyList<ConformanceTestInfo> LoadTests()
 		{
 			using (var testsJsonReader = new StreamReader(typeof(WebApiControllerServerApp).Assembly.GetManifestResourceStream("WebApiControllerServer.ConformanceTests.json")))
-				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests;
+				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests!;
 		}
 	}
 }
