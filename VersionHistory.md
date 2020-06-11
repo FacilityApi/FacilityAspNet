@@ -1,5 +1,9 @@
 # Version History
 
+### 2.1.0
+
+* Update `Facility.Definition`. (Supports shorthand for required attribute, e.g. `string!`.)
+
 ### 2.0.2
 
 * Depend on `Microsoft.AspNetCore.Mvc.Core` instead of `Microsoft.AspNetCore.Mvc`.
