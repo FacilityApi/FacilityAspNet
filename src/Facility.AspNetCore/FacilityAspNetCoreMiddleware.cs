@@ -16,23 +16,22 @@ namespace Facility.AspNetCore
 		/// <summary>
 		/// Creates an instance.
 		/// </summary>
-		public FacilityAspNetCoreMiddleware(RequestDelegate next, T handler)
+		public FacilityAspNetCoreMiddleware(RequestDelegate next)
 		{
 			m_next = next;
-			m_handler = handler;
 		}
 
 		/// <summary>
 		/// Invokes the middleware.
 		/// </summary>
-		public async Task Invoke(HttpContext httpContext)
+		public async Task Invoke(HttpContext httpContext, T handler)
 		{
 			var httpRequestMessage = FacilityAspNetCoreUtility.CreateHttpRequestMessage(httpContext.Request);
 
 			HttpResponseMessage? httpResponseMessage;
 			try
 			{
-				httpResponseMessage = await m_handler.TryHandleHttpRequestAsync(httpRequestMessage, httpContext.RequestAborted).ConfigureAwait(false);
+				httpResponseMessage = await handler.TryHandleHttpRequestAsync(httpRequestMessage, httpContext.RequestAborted).ConfigureAwait(false);
 			}
 			catch (Exception exception)
 			{
@@ -51,6 +50,5 @@ namespace Facility.AspNetCore
 		}
 
 		private readonly RequestDelegate m_next;
-		private readonly T m_handler;
 	}
 }
