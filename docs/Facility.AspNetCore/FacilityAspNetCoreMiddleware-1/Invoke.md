@@ -3,7 +3,7 @@
 Invokes the middleware.
 
 ```csharp
-public Task Invoke(HttpContext httpContext)
+public Task Invoke(HttpContext httpContext, T handler)
 ```
 
 ## See Also

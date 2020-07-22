@@ -3,7 +3,7 @@
 Creates an instance.
 
 ```csharp
-public FacilityAspNetCoreMiddleware(RequestDelegate next, T handler)
+public FacilityAspNetCoreMiddleware(RequestDelegate next)
 ```
 
 ## See Also
