@@ -1,5 +1,9 @@
 # Version History
 
+### 2.1.1
+
+* Support scoped dependencies with `UseFacilityHttpHandler`.
+
 ### 2.1.0
 
 * Update `Facility.Definition`. (Supports shorthand for required attribute, e.g. `string!`.)
