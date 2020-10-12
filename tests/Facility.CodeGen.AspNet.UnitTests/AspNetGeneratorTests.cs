@@ -16,7 +16,7 @@ namespace Facility.CodeGen.AspNet.UnitTests
 			var parser = new FsdParser();
 			var stream = GetType().GetTypeInfo().Assembly.GetManifestResourceStream(fileName);
 			Assert.IsNotNull(stream);
-			using (var reader = new StreamReader(stream))
+			using (var reader = new StreamReader(stream!))
 				service = parser.ParseDefinition(new ServiceDefinitionText(Path.GetFileName(fileName), reader.ReadToEnd()));
 
 			var generator = new AspNetGenerator

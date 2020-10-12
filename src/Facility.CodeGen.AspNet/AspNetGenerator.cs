@@ -56,7 +56,7 @@ namespace Facility.CodeGen.AspNet
 					"System.Threading.Tasks",
 					"Facility.Core",
 					TargetFramework == AspNetFramework.WebApi ? "System.Web.Http" : "Microsoft.AspNetCore.Mvc",
-					apiNamespaceName
+					apiNamespaceName,
 				};
 				CSharpUtility.WriteUsings(code, usings, namespaceName);
 

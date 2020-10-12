@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Facility.ConformanceApi;
 using Facility.ConformanceApi.Testing;
@@ -25,6 +26,7 @@ namespace CoreWebApiShimServer
 				services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddWebApiConventions();
 			}
 
+			[SuppressMessage("Usage", "CA1801:Review unused parameters", Justification = "Hosting environment not currently used.")]
 			public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 			{
 				app.UseMvc();
@@ -33,8 +35,8 @@ namespace CoreWebApiShimServer
 
 		private static IReadOnlyList<ConformanceTestInfo> LoadTests()
 		{
-			using (var testsJsonReader = new StreamReader(typeof(CoreWebApiShimServerApp).Assembly.GetManifestResourceStream("CoreWebApiShimServer.ConformanceTests.json")))
-				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests!;
+			using var testsJsonReader = new StreamReader(typeof(CoreWebApiShimServerApp).Assembly.GetManifestResourceStream("CoreWebApiShimServer.ConformanceTests.json")!);
+			return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests!;
 		}
 	}
 }

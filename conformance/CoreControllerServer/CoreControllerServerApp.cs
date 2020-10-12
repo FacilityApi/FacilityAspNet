@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Facility.AspNetCore;
 using Facility.ConformanceApi;
@@ -27,6 +28,7 @@ namespace CoreControllerServer
 				services.AddMvc(options => { options.Filters.Add<FacilityActionFilter>(); }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 			}
 
+			[SuppressMessage("Usage", "CA1801:Review unused parameters", Justification = "Hosting environment not currently used.")]
 			public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 			{
 				app.UseMvc();
@@ -35,8 +37,8 @@ namespace CoreControllerServer
 
 		private static IReadOnlyList<ConformanceTestInfo> LoadTests()
 		{
-			using (var testsJsonReader = new StreamReader(typeof(CoreControllerServerApp).Assembly.GetManifestResourceStream("CoreControllerServer.ConformanceTests.json")))
-				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests!;
+			using var testsJsonReader = new StreamReader(typeof(CoreControllerServerApp).Assembly.GetManifestResourceStream("CoreControllerServer.ConformanceTests.json")!);
+			return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests!;
 		}
 	}
 }
