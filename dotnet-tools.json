@@ -2,11 +2,22 @@
   "version": 1,
   "isRoot": true,
   "tools": {
+    "dotnet-format": {
+      "version": "4.1.131201",
+      "commands": [
+        "dotnet-format"
+      ]
+    },
     "facilityconformance": {
       "version": "2.4.0",
       "commands": [
         "FacilityConformance"
       ]
+    },
+    "jetbrains.resharper.globaltools": {
+      "version": "2020.2.4",
+      "commands": [
+        "jb"
+      ]
     }
   }
-}

@@ -1,7 +1,8 @@
 # Facility ASP.NET Support
 
 [ASP.NET support](https://facilityapi.github.io/generate/aspnet) for the [Facility API Framework](https://facilityapi.github.io/).
-[![AppVeyor](https://img.shields.io/appveyor/ci/ejball/facilityaspnet.svg)](https://ci.appveyor.com/project/ejball/facilityaspnet)
+
+[![Build](https://github.com/FacilityApi/FacilityAspNet/workflows/Build/badge.svg)](https://github.com/FacilityApi/FacilityAspNet/actions?query=workflow%3ABuild)
 
 Name | Description | NuGet
 --- | --- | ---
@@ -11,7 +12,5 @@ Facility.CodeGen.AspNet | A library that generates an ASP.NET controller for a F
 
 ## Documentation
 
-* https://facilityapi.github.io/
-* License: [MIT](LICENSE)
-* [Version History](VersionHistory.md)
-* [Contributing Guidelines](CONTRIBUTING.md)
+* [Documentation](https://facilityapi.github.io/)
+* [Release Notes](ReleaseNotes.md)
