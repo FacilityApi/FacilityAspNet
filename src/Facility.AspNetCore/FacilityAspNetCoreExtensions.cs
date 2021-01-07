@@ -21,5 +21,17 @@ namespace Facility.AspNetCore
 
 			return builder.UseMiddleware<FacilityAspNetCoreMiddleware<T>>();
 		}
+
+		/// <summary>
+		/// Adds a Facility service exception handler to the pipeline.
+		/// </summary>
+		/// <remarks>Do not include error details in production.</remarks>
+		public static IApplicationBuilder UseFacilityExceptionHandler(this IApplicationBuilder builder, bool includeErrorDetails = false)
+		{
+			if (builder == null)
+				throw new ArgumentNullException(nameof(builder));
+
+			return builder.UseMiddleware<FacilityAspNetCoreExceptionHandler>(includeErrorDetails);
+		}
 	}
 }

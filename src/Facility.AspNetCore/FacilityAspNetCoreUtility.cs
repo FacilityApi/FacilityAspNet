@@ -32,9 +32,11 @@ namespace Facility.AspNetCore
 			return httpRequestMessage;
 		}
 
-		public static HttpResponseMessage CreateHttpResponseMessage(Exception exception)
+		public static HttpResponseMessage CreateHttpResponseMessage(Exception exception) =>
+			CreateHttpResponseMessage(ServiceErrorUtility.CreateInternalErrorForException(exception));
+
+		public static HttpResponseMessage CreateHttpResponseMessage(ServiceErrorDto error)
 		{
-			var error = ServiceErrorUtility.CreateInternalErrorForException(exception);
 			var statusCode = HttpServiceErrors.TryGetHttpStatusCode(error.Code) ?? HttpStatusCode.InternalServerError;
 			return new HttpResponseMessage(statusCode)
 			{

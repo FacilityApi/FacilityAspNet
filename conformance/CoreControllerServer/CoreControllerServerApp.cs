@@ -28,9 +28,9 @@ namespace CoreControllerServer
 				services.AddMvc(options => { options.Filters.Add<FacilityActionFilter>(); }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 			}
 
-			[SuppressMessage("Usage", "CA1801:Review unused parameters", Justification = "Hosting environment not currently used.")]
 			public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 			{
+				app.UseFacilityExceptionHandler(includeErrorDetails: env.IsDevelopment());
 				app.UseMvc();
 			}
 		}

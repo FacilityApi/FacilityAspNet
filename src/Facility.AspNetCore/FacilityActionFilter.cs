@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Facility.AspNetCore
 {
-	public sealed class FacilityActionFilter : ActionFilterAttribute, IAsyncExceptionFilter
+	public sealed class FacilityActionFilter : ActionFilterAttribute
 	{
 		public override void OnActionExecuting(ActionExecutingContext context)
 		{
@@ -22,11 +22,6 @@ namespace Facility.AspNetCore
 				await WriteAndDisposeHttpResponseMessage(httpResponseMessage, context);
 			else
 				await next();
-		}
-
-		public async Task OnExceptionAsync(ExceptionContext context)
-		{
-			await WriteAndDisposeHttpResponseMessage(FacilityAspNetCoreUtility.CreateHttpResponseMessage(context.Exception), context);
 		}
 
 		private static async Task WriteAndDisposeHttpResponseMessage(HttpResponseMessage httpResponseMessage, ActionContext context)

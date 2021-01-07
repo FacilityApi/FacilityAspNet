@@ -1,5 +1,3 @@
-using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Facility.Core.Http;
 using Microsoft.AspNetCore.Http;
@@ -27,17 +25,7 @@ namespace Facility.AspNetCore
 		public async Task Invoke(HttpContext httpContext, T handler)
 		{
 			var httpRequestMessage = FacilityAspNetCoreUtility.CreateHttpRequestMessage(httpContext.Request);
-
-			HttpResponseMessage? httpResponseMessage;
-			try
-			{
-				httpResponseMessage = await handler.TryHandleHttpRequestAsync(httpRequestMessage, httpContext.RequestAborted).ConfigureAwait(false);
-			}
-			catch (Exception exception)
-			{
-				httpResponseMessage = FacilityAspNetCoreUtility.CreateHttpResponseMessage(exception);
-			}
-
+			var httpResponseMessage = await handler.TryHandleHttpRequestAsync(httpRequestMessage, httpContext.RequestAborted).ConfigureAwait(false);
 			if (httpResponseMessage != null)
 			{
 				using (httpResponseMessage)
