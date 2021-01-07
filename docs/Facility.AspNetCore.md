@@ -5,6 +5,7 @@
 | public type | description |
 | --- | --- |
 | class [FacilityActionFilter](Facility.AspNetCore/FacilityActionFilter.md) |  |
+| class [FacilityAspNetCoreExceptionHandler](Facility.AspNetCore/FacilityAspNetCoreExceptionHandler.md) | ASP.NET Core middleware for a Facility service exception handler. |
 | static class [FacilityAspNetCoreExtensions](Facility.AspNetCore/FacilityAspNetCoreExtensions.md) | ASP.NET Core extension methods for Facility. |
 | class [FacilityAspNetCoreMiddleware&lt;T&gt;](Facility.AspNetCore/FacilityAspNetCoreMiddleware-1.md) | ASP.NET Core middleware for a Facility service HTTP handler. |
 | class [FacilityAspNetCoreUtility](Facility.AspNetCore/FacilityAspNetCoreUtility.md) |  |

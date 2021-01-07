@@ -1,7 +1,20 @@
-# FacilityAspNetCoreUtility.CreateHttpResponseMessage method
+# FacilityAspNetCoreUtility.CreateHttpResponseMessage method (1 of 2)
 
 ```csharp
 public static HttpResponseMessage CreateHttpResponseMessage(Exception exception)
+```
+
+## See Also
+
+* class [FacilityAspNetCoreUtility](../FacilityAspNetCoreUtility.md)
+* namespace [Facility.AspNetCore](../../Facility.AspNetCore.md)
+
+---
+
+# FacilityAspNetCoreUtility.CreateHttpResponseMessage method (2 of 2)
+
+```csharp
+public static HttpResponseMessage CreateHttpResponseMessage(ServiceErrorDto error)
 ```
 
 ## See Also

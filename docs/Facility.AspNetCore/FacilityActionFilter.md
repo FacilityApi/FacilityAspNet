@@ -2,7 +2,7 @@
 
 ```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
-public sealed class FacilityActionFilter : ActionFilterAttribute, IAsyncExceptionFilter
+public sealed class FacilityActionFilter : ActionFilterAttribute
 ```
 
 ## Public Members
@@ -11,7 +11,6 @@ public sealed class FacilityActionFilter : ActionFilterAttribute, IAsyncExceptio
 | --- | --- |
 | [FacilityActionFilter](FacilityActionFilter/FacilityActionFilter.md)() | The default constructor. |
 | override [OnActionExecuting](FacilityActionFilter/OnActionExecuting.md)(…) |  |
-| [OnExceptionAsync](FacilityActionFilter/OnExceptionAsync.md)(…) |  |
 | override [OnResultExecutionAsync](FacilityActionFilter/OnResultExecutionAsync.md)(…) |  |
 
 ## See Also

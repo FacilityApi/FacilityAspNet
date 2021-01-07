@@ -10,7 +10,7 @@ public sealed class FacilityAspNetCoreUtility
 | --- | --- |
 | [FacilityAspNetCoreUtility](FacilityAspNetCoreUtility/FacilityAspNetCoreUtility.md)() | The default constructor. |
 | static [CreateHttpRequestMessage](FacilityAspNetCoreUtility/CreateHttpRequestMessage.md)(…) |  |
-| static [CreateHttpResponseMessage](FacilityAspNetCoreUtility/CreateHttpResponseMessage.md)(…) |  |
+| static [CreateHttpResponseMessage](FacilityAspNetCoreUtility/CreateHttpResponseMessage.md)(…) |  (2 methods) |
 | static [WriteHttpResponseMessageAsync](FacilityAspNetCoreUtility/WriteHttpResponseMessageAsync.md)(…) |  |
 
 ## See Also
