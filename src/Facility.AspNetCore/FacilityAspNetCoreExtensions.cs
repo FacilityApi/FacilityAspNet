@@ -1,6 +1,8 @@
 using System;
+using Facility.Core;
 using Facility.Core.Http;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 
 namespace Facility.AspNetCore
 {
@@ -31,7 +33,14 @@ namespace Facility.AspNetCore
 			if (builder == null)
 				throw new ArgumentNullException(nameof(builder));
 
-			return builder.UseMiddleware<FacilityAspNetCoreExceptionHandler>(includeErrorDetails);
+			return builder.UseExceptionHandler(
+				options => options.Run(async context =>
+				{
+					var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
+					var error = includeErrorDetails && exception != null ? ServiceErrorUtility.CreateInternalErrorForException(exception) : ServiceErrors.CreateInternalError();
+					using var httpResponseMessage = FacilityAspNetCoreUtility.CreateHttpResponseMessage(error);
+					await FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync(httpResponseMessage, context.Response);
+				}));
 		}
 	}
 }
