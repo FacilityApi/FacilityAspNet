@@ -1,5 +1,11 @@
 # Release Notes
 
+## 3.0.0
+
+* **Breaking:** Don't catch exceptions from `UseFacilityHttpHandler` / `FacilityAspNetCoreMiddleware`.
+* **Breaking:** Don't handle exceptions in `FacilityActionFilter`.
+* Add `UseFacilityExceptionHandler` / `FacilityAspNetCoreExceptionHandler`.
+
 ## 2.1.1
 
 * Support scoped dependencies with `UseFacilityHttpHandler`.
