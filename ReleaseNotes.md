@@ -2,9 +2,9 @@
 
 ## 3.0.0
 
-* **Breaking:** Don't catch exceptions from `UseFacilityHttpHandler` / `FacilityAspNetCoreMiddleware`.
+* **Breaking:** Don't catch exceptions from `UseFacilityHttpHandler` (`FacilityAspNetCoreMiddleware`).
 * **Breaking:** Don't handle exceptions in `FacilityActionFilter`.
-* Add `UseFacilityExceptionHandler` / `FacilityAspNetCoreExceptionHandler`.
+* Support `UseFacilityExceptionHandler`, which returns the expected JSON for the error, only including possibly insecure error details if requested. It calls `UseExceptionHandler` to leverage standard exception handling logic, including logging.
 
 ## 2.1.1
 
