@@ -1,5 +1,10 @@
 # Release Notes
 
+## 3.1.0
+
+* Support .NET 5.
+* Update dependencies.
+
 ## 3.0.0
 
 * **Breaking:** Don't catch exceptions from `UseFacilityHttpHandler` (`FacilityAspNetCoreMiddleware`).
