@@ -36,13 +36,13 @@ namespace Facility.CodeGen.AspNet
 		/// <summary>
 		/// Generates the ASP.NET controller.
 		/// </summary>
-		public override CodeGenOutput GenerateOutput(ServiceInfo serviceInfo)
+		public override CodeGenOutput GenerateOutput(ServiceInfo service)
 		{
-			var serviceName = serviceInfo.Name;
-			var apiNamespaceName = ApiNamespaceName ?? CSharpUtility.GetNamespaceName(serviceInfo);
+			var serviceName = service.Name;
+			var apiNamespaceName = ApiNamespaceName ?? CSharpUtility.GetNamespaceName(service);
 			var namespaceName = NamespaceName ?? $"{apiNamespaceName}.Controllers";
 			var controllerName = $"{CodeGenUtility.Capitalize(serviceName)}Controller";
-			var httpServiceInfo = HttpServiceInfo.Create(serviceInfo);
+			var httpServiceInfo = HttpServiceInfo.Create(service);
 
 			return new CodeGenOutput(CreateFile($"{controllerName}{CSharpUtility.FileExtension}", code =>
 			{
