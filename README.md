@@ -14,3 +14,21 @@ Facility.CodeGen.AspNet | A library that generates an ASP.NET controller for a F
 
 * [Documentation](https://facilityapi.github.io/)
 * [Release Notes](ReleaseNotes.md)
+
+## Conformance
+
+To run conformance tests, first start one of the conformance servers:
+
+```powershell
+dotnet run --project .\conformance\CoreControllerServer
+dotnet run --project .\conformance\CoreMiddlewareServer
+dotnet run --project .\conformance\CoreWebApiShimServer
+dotnet run --project .\conformance\WebApiControllerServer
+dotnet run --project .\conformance\WebApiMiddlewareServer
+```
+
+Then run the conformance tool against the running service.
+
+```powershell
+dotnet FacilityConformance test --url http://localhost:4117
+```
