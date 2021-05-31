@@ -9,10 +9,7 @@ namespace fsdgenaspnet
 {
 	public sealed class FsdGenAspNetApp : CodeGeneratorApp
 	{
-		public static int Main(string[] args)
-		{
-			return new FsdGenAspNetApp().Run(args);
-		}
+		public static int Main(string[] args) => new FsdGenAspNetApp().Run(args);
 
 		protected override IReadOnlyList<string> Description => new[]
 		{
@@ -41,13 +38,12 @@ namespace fsdgenaspnet
 
 		public static AspNetFramework ReadTargetOption(ArgsReader args)
 		{
-			string value = args.ReadOption("target");
+			var value = args.ReadOption("target");
 
-			if (value == null)
+			if (value is null)
 				return AspNetFramework.WebApi;
 
-			AspNetFramework result;
-			if (!Enum.TryParse(value, ignoreCase: true, result: out result))
+			if (!Enum.TryParse(value, ignoreCase: true, result: out AspNetFramework result))
 				throw new ArgsReaderException($"Invalid target '{value}'. (Should be 'webapi' or 'core'.)");
 
 			return result;
