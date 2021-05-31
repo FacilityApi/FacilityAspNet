@@ -3,7 +3,7 @@
 Generates the ASP.NET controller.
 
 ```csharp
-public override CodeGenOutput GenerateOutput(ServiceInfo serviceInfo)
+public override CodeGenOutput GenerateOutput(ServiceInfo service)
 ```
 
 ## See Also

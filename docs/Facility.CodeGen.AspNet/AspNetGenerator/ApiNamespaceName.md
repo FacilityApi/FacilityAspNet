@@ -3,7 +3,7 @@
 The name of the API namespace (optional).
 
 ```csharp
-public string ApiNamespaceName { get; set; }
+public string? ApiNamespaceName { get; set; }
 ```
 
 ## See Also
