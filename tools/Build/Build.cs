@@ -49,8 +49,8 @@ return BuildRunner.Execute(args, build =>
 
 		var verifyOption = verify ? "--verify" : null;
 
-		RunDotNet("tool", "run", "FacilityConformance", "fsd", "--output", "conformance/ConformanceApi.fsd", verifyOption);
-		RunDotNet("tool", "run", "FacilityConformance", "json", "--output", "conformance/ConformanceTests.json", verifyOption);
+		RunDotNet("FacilityConformance", "fsd", "--output", "conformance/ConformanceApi.fsd", verifyOption);
+		RunDotNet("FacilityConformance", "json", "--output", "conformance/ConformanceTests.json", verifyOption);
 
 		RunDotNet(toolPath, "conformance/ConformanceApi.fsd", "conformance/WebApiControllerServer/Controllers",
 			"--namespace", "WebApiControllerServer.Controllers", "--newline", "lf", verifyOption);
