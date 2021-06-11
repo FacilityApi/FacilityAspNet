@@ -85,5 +85,23 @@ namespace CoreControllerServer.Controllers
 		{
 			return GetServiceHttpHandler().TryHandleRequiredAsync(httpRequest, cancellationToken);
 		}
+
+		[HttpPost, Route("mirrorBytes")]
+		public Task<HttpResponseMessage> MirrorBytes(HttpRequestMessage httpRequest, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			return GetServiceHttpHandler().TryHandleMirrorBytesAsync(httpRequest, cancellationToken);
+		}
+
+		[HttpPost, Route("mirrorText")]
+		public Task<HttpResponseMessage> MirrorText(HttpRequestMessage httpRequest, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			return GetServiceHttpHandler().TryHandleMirrorTextAsync(httpRequest, cancellationToken);
+		}
+
+		[HttpPost, Route("bodyTypes")]
+		public Task<HttpResponseMessage> BodyTypes(HttpRequestMessage httpRequest, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			return GetServiceHttpHandler().TryHandleBodyTypesAsync(httpRequest, cancellationToken);
+		}
 	}
 }
