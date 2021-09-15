@@ -12,8 +12,7 @@ Facility.CodeGen.AspNet | A library that generates an ASP.NET controller for a F
 
 ## Documentation
 
-* [Documentation](https://facilityapi.github.io/)
-* [Release Notes](ReleaseNotes.md)
+[Documentation](https://facilityapi.github.io/) | [Release Notes](ReleaseNotes.md) | [Contributing](CONTRIBUTING.md)
 
 ## Conformance
 
