@@ -29,5 +29,5 @@ dotnet run --project .\conformance\WebApiMiddlewareServer
 Then run the conformance tool against the running service.
 
 ```powershell
-dotnet FacilityConformance test --url http://localhost:4117
+dotnet FacilityConformance test
 ```
