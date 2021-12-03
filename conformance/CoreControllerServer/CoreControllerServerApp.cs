@@ -1,14 +1,6 @@
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using Facility.AspNetCore;
 using Facility.ConformanceApi;
 using Facility.ConformanceApi.Testing;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace CoreControllerServer
 {

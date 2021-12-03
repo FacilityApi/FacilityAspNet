@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Web.Http;
 using Facility.ConformanceApi.Http;
 using Facility.ConformanceApi.Testing;

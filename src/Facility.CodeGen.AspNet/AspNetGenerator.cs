@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Facility.Definition;
 using Facility.Definition.CodeGen;
 using Facility.Definition.Http;

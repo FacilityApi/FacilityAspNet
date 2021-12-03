@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Facility.Core.Http;
 using Microsoft.AspNetCore.Http;
 

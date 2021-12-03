@@ -1,4 +1,3 @@
-using System;
 using Facility.Core;
 using Facility.Core.Http;
 using Microsoft.AspNetCore.Builder;
