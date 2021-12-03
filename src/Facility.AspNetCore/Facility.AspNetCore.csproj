@@ -1,7 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
+    <OutputType>Library</OutputType>
     <Description>Helpers for using Facility with ASP.NET Core.</Description>
     <PackageTags>Facility FSD ASP.NET Core</PackageTags>
     <IsPackable>true</IsPackable>
@@ -10,8 +11,6 @@
 
   <ItemGroup>
     <PackageReference Include="Facility.Core" Version="$(FacilityCSharpVersion)" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>
 
 </Project>

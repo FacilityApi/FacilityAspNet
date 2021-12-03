@@ -23,13 +23,12 @@ namespace CoreWebApiShimServer
 			public void ConfigureServices(IServiceCollection services)
 			{
 				services.AddSingleton<IConformanceApi>(new ConformanceApiService(LoadTests()));
-				services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddWebApiConventions();
+				services.AddMvc();
 			}
 
 			[SuppressMessage("Usage", "CA1801:Review unused parameters", Justification = "Hosting environment not currently used.")]
-			public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+			public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 			{
-				app.UseMvc();
 			}
 		}
 

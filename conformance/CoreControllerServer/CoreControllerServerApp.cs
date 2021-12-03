@@ -25,13 +25,12 @@ namespace CoreControllerServer
 			{
 				services.AddSingleton<IConformanceApi>(new ConformanceApiService(LoadTests()));
 				services.AddSingleton<FacilityActionFilter>();
-				services.AddMvc(options => { options.Filters.Add<FacilityActionFilter>(); }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+				services.AddMvc(options => { options.Filters.Add<FacilityActionFilter>(); });
 			}
 
-			public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+			public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 			{
 				app.UseFacilityExceptionHandler(includeErrorDetails: env.IsDevelopment());
-				app.UseMvc();
 			}
 		}
 
