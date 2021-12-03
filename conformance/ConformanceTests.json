@@ -520,7 +520,8 @@
         "widgetResult": { "value": { "name": "string" } },
         "widgetResults": [{ "value": { "name": "string" } }],
         "widgetMap": { "name": { "name": "string" } },
-        "hasWidget": { "widget": { "name": "string" } }
+        "hasWidget": { "widget": { "name": "string" } },
+        "point": [ 0.0, 1.0 ]
       },
       "response": {
         "normal": "string"
@@ -649,6 +650,137 @@
       },
       "response": {
         "content": "NDI="
+      }
+    },
+    {
+      "test": "checkPathHttpPathCase",
+      "method": "checkPath",
+      "httpRequest": {
+        "method": "GET",
+        "path": "/CHECKPATH/pathCase/true/1.2/3/4/5.6/yes"
+      },
+      "request": {
+        "string": "pathCase",
+        "boolean": true,
+        "double": 1.2,
+        "int32": 3,
+        "int64": 4,
+        "decimal": 5.6,
+        "enum": "yes"
+      },
+      "response": {}
+    },
+    {
+      "test": "checkPathHttpBooleanCase",
+      "method": "checkPath",
+      "httpRequest": {
+        "method": "GET",
+        "path": "/checkPath/booleanCase/TRUE/1.2/3/4/5.6/yes"
+      },
+      "request": {
+        "string": "booleanCase",
+        "boolean": true,
+        "double": 1.2,
+        "int32": 3,
+        "int64": 4,
+        "decimal": 5.6,
+        "enum": "yes"
+      },
+      "response": {}
+    },
+    {
+      "test": "checkQueryHttpPathCase",
+      "method": "checkQuery",
+      "httpRequest": {
+        "method": "GET",
+        "path": "/CHECKQUERY?string=pathCase&boolean=true&double=1.2&int32=3&int64=4&decimal=5.6&enum=yes"
+      },
+      "request": {
+        "string": "pathCase",
+        "boolean": true,
+        "double": 1.2,
+        "int32": 3,
+        "int64": 4,
+        "decimal": 5.6,
+        "enum": "yes"
+      },
+      "response": {}
+    },
+    {
+      "test": "checkQueryHttpQueryCase",
+      "method": "checkQuery",
+      "httpRequest": {
+        "method": "GET",
+        "path": "/checkQuery?STRING=queryCase&boolean=true&double=1.2&int32=3&int64=4&decimal=5.6&enum=yes"
+      },
+      "request": {
+        "string": "queryCase",
+        "boolean": true,
+        "double": 1.2,
+        "int32": 3,
+        "int64": 4,
+        "decimal": 5.6,
+        "enum": "yes"
+      },
+      "response": {}
+    },
+    {
+      "test": "getWidgetInvalidId",
+      "method": "getWidget",
+      "request": {
+        "id": -1
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'id' is invalid: Must be at least 0."
+      }
+    },
+    {
+      "test": "createWidgetInvalidName",
+      "method": "createWidget",
+      "request": {
+        "widget": {
+          "name": "*order"
+        }
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'widget' is invalid: 'name' is invalid: Must match regular expression: ^[_a-zA-Z0-9]+$"
+      }
+    },
+    {
+      "test": "getWidgetBatchTooLarge",
+      "method": "getWidgetBatch",
+      "request": {
+        "ids": [0, 1, 2, 31, 231, 10011, 10213, 20014, 120001, 120003, 120032, 1000000001]
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'ids' is invalid: Count must be at most 10."
+      }
+    },
+    {
+      "test": "createWidgetNameTooLong",
+      "method": "createWidget",
+      "request": {
+        "widget": {
+          "name": "FacilityServiceWidget"
+        }
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'widget' is invalid: 'name' is invalid: Length must be at most 10."
+      }
+    },
+    {
+      "test": "checkQueryInvalidAnswer",
+      "method": "checkQuery",
+      "request": {
+        "enum": "negative"
+      },
+      "error": {
+        "code": "InvalidRequest",
+        "message": "'enum' is invalid: Must be an expected enum value."
       }
     }
   ]
