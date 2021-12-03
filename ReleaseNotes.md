@@ -1,5 +1,10 @@
 # Release Notes
 
+## 3.2.0
+
+* Support .NET 6.
+* Update dependencies.
+
 ## 3.1.0
 
 * Support .NET 5.
