@@ -1,5 +1,3 @@
-using System.Net.Http;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -10,7 +8,7 @@ namespace Facility.AspNetCore
 		public override void OnActionExecuting(ActionExecutingContext context)
 		{
 			if (context.ActionArguments.ContainsKey(c_httpRequestKey) &&
-				context.ActionArguments[c_httpRequestKey].GetType() == typeof(HttpRequestMessage))
+				context.ActionArguments[c_httpRequestKey]!.GetType() == typeof(HttpRequestMessage))
 			{
 				context.ActionArguments[c_httpRequestKey] = FacilityAspNetCoreUtility.CreateHttpRequestMessage(context.HttpContext.Request);
 			}

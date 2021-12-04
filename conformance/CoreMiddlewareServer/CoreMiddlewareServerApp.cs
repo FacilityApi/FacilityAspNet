@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using Facility.AspNetCore;
 using Facility.ConformanceApi;
 using Facility.ConformanceApi.Http;
@@ -8,6 +5,7 @@ using Facility.ConformanceApi.Testing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace CoreMiddlewareServer
 {
@@ -27,8 +25,7 @@ namespace CoreMiddlewareServer
 				services.AddSingleton<ConformanceApiHttpHandler>();
 			}
 
-			[SuppressMessage("Usage", "CA1801:Review unused parameters", Justification = "Hosting environment not currently used.")]
-			public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+			public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 			{
 				app.UseFacilityExceptionHandler(includeErrorDetails: env.IsDevelopment());
 				app.UseFacilityHttpHandler<ConformanceApiHttpHandler>();
