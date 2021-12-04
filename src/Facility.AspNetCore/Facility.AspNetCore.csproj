@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
-    <OutputType>Library</OutputType>
     <Description>Helpers for using Facility with ASP.NET Core.</Description>
     <PackageTags>Facility FSD ASP.NET Core</PackageTags>
     <IsPackable>true</IsPackable>
