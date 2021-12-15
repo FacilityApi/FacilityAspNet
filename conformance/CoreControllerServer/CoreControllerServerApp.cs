@@ -9,7 +9,7 @@ namespace CoreControllerServer
 		public static void Main()
 		{
 			const string url = "http://localhost:4117";
-			new WebHostBuilder().UseKestrel().UseUrls(url).UseStartup<Startup>().Build().Run();
+			new WebHostBuilder().UseKestrel(options => options.AllowSynchronousIO = true).UseUrls(url).UseStartup<Startup>().Build().Run();
 		}
 
 		private sealed class Startup
@@ -18,12 +18,14 @@ namespace CoreControllerServer
 			{
 				services.AddSingleton<IConformanceApi>(new ConformanceApiService(LoadTests()));
 				services.AddSingleton<FacilityActionFilter>();
-				services.AddMvc(options => { options.Filters.Add<FacilityActionFilter>(); });
+				services.AddControllers(options => options.Filters.Add<FacilityActionFilter>());
 			}
 
 			public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 			{
 				app.UseFacilityExceptionHandler(includeErrorDetails: env.IsDevelopment());
+				app.UseRouting();
+				app.UseEndpoints(endpoints => endpoints.MapControllers());
 			}
 		}
 

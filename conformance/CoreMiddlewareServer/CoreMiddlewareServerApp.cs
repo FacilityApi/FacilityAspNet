@@ -14,7 +14,7 @@ namespace CoreMiddlewareServer
 		public static void Main()
 		{
 			const string url = "http://localhost:4117";
-			new WebHostBuilder().UseKestrel().UseUrls(url).UseStartup<Startup>().Build().Run();
+			new WebHostBuilder().UseKestrel(options => options.AllowSynchronousIO = true).UseUrls(url).UseStartup<Startup>().Build().Run();
 		}
 
 		private sealed class Startup
