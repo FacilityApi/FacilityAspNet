@@ -21,7 +21,6 @@ To run conformance tests, first start one of the conformance servers:
 ```powershell
 dotnet run --project .\conformance\CoreControllerServer
 dotnet run --project .\conformance\CoreMiddlewareServer
-dotnet run --project .\conformance\CoreWebApiShimServer
 dotnet run --project .\conformance\WebApiControllerServer
 dotnet run --project .\conformance\WebApiMiddlewareServer
 ```
