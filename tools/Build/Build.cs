@@ -48,8 +48,6 @@ return BuildRunner.Execute(args, build =>
 
 		RunDotNet(toolPath, "conformance/ConformanceApi.fsd", "conformance/WebApiControllerServer/Controllers",
 			"--namespace", "WebApiControllerServer.Controllers", "--newline", "lf", verifyOption);
-		RunDotNet(toolPath, "conformance/ConformanceApi.fsd", "conformance/CoreWebApiShimServer/Controllers",
-			"--namespace", "CoreWebApiShimServer.Controllers", "--target", "core", "--newline", "lf", verifyOption);
 		RunDotNet(toolPath, "conformance/ConformanceApi.fsd", "conformance/CoreControllerServer/Controllers",
 			"--namespace", "CoreControllerServer.Controllers", "--target", "core", "--newline", "lf", verifyOption);
 	}
