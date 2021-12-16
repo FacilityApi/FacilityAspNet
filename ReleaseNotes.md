@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.3.0
+
+* Update Facility.
+
 ## 3.2.0
 
 * Support .NET 6.
