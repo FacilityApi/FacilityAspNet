@@ -2,6 +2,7 @@ using Facility.AspNetCore;
 using Facility.ConformanceApi;
 using Facility.ConformanceApi.Http;
 using Facility.ConformanceApi.Testing;
+using Facility.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,14 +15,20 @@ namespace CoreMiddlewareServer
 		public static void Main()
 		{
 			const string url = "http://localhost:4117";
-			new WebHostBuilder().UseKestrel(options => options.AllowSynchronousIO = true).UseUrls(url).UseStartup<Startup>().Build().Run();
+			new WebHostBuilder().UseKestrel().UseUrls(url).UseStartup<Startup>().Build().Run();
 		}
+
+		public static readonly JsonServiceSerializer JsonSerializer = SystemTextJsonServiceSerializer.Instance;
 
 		private sealed class Startup
 		{
 			public void ConfigureServices(IServiceCollection services)
 			{
-				services.AddSingleton<IConformanceApi>(new ConformanceApiService(LoadTests()));
+				services.AddSingleton<IConformanceApi>(new ConformanceApiService(new ConformanceApiServiceSettings
+				{
+					Tests = LoadTests(),
+					JsonSerializer = JsonSerializer,
+				}));
 				services.AddSingleton<ConformanceApiHttpHandler>();
 			}
 
@@ -35,7 +42,7 @@ namespace CoreMiddlewareServer
 		private static IReadOnlyList<ConformanceTestInfo> LoadTests()
 		{
 			using var testsJsonReader = new StreamReader(typeof(CoreMiddlewareServerApp).Assembly.GetManifestResourceStream("CoreMiddlewareServer.ConformanceTests.json")!);
-			return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests!;
+			return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd(), JsonSerializer).Tests!;
 		}
 	}
 }

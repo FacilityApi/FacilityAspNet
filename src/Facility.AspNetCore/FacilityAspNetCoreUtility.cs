@@ -36,7 +36,7 @@ namespace Facility.AspNetCore
 			var statusCode = HttpServiceErrors.TryGetHttpStatusCode(error.Code) ?? HttpStatusCode.InternalServerError;
 			return new HttpResponseMessage(statusCode)
 			{
-				Content = JsonHttpContentSerializer.Instance.CreateHttpContent(error),
+				Content = HttpContentSerializer.Create(SystemTextJsonServiceSerializer.Instance).CreateHttpContent(error),
 			};
 		}
 

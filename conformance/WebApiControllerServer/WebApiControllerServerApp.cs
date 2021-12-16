@@ -1,6 +1,7 @@
 using System.Web.Http;
 using Facility.ConformanceApi;
 using Facility.ConformanceApi.Testing;
+using Facility.Core;
 using Microsoft.Owin.Hosting;
 using Owin;
 
@@ -19,7 +20,14 @@ namespace WebApiControllerServer
 			}
 		}
 
-		public static readonly IConformanceApi Service = new ConformanceApiService(LoadTests());
+		public static readonly JsonServiceSerializer JsonSerializer = SystemTextJsonServiceSerializer.Instance;
+
+		public static readonly IConformanceApi Service = new ConformanceApiService(
+			new ConformanceApiServiceSettings
+			{
+				Tests = LoadTests(),
+				JsonSerializer = JsonSerializer,
+			});
 
 		private sealed class Startup
 		{
@@ -34,7 +42,7 @@ namespace WebApiControllerServer
 		private static IReadOnlyList<ConformanceTestInfo> LoadTests()
 		{
 			using (var testsJsonReader = new StreamReader(typeof(WebApiControllerServerApp).Assembly.GetManifestResourceStream("WebApiControllerServer.ConformanceTests.json")))
-				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests!;
+				return ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd(), JsonSerializer).Tests!;
 		}
 	}
 }

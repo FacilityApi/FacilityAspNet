@@ -24,10 +24,12 @@ return BuildRunner.Execute(args, build =>
 	build.AddDotNetTargets(dotNetBuildSettings);
 
 	build.Target("codegen")
+		.DependsOn("restore")
 		.Describe("Generates code from the FSD")
 		.Does(() => CodeGen(verify: false));
 
 	build.Target("verify-codegen")
+		.DependsOn("restore")
 		.Describe("Ensures the generated code is up-to-date")
 		.Does(() => CodeGen(verify: true));
 

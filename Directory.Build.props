@@ -32,7 +32,7 @@
 
   <PropertyGroup>
     <FacilityVersion>2.7.0</FacilityVersion>
-    <FacilityCSharpVersion>2.13.5</FacilityCSharpVersion>
+    <FacilityCSharpVersion>2.14.1</FacilityCSharpVersion>
   </PropertyGroup>
 
   <ItemGroup>
