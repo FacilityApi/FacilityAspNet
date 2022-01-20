@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.3.2
+
+* Fix build that didn't work properly on .NET 5 or .NET Core 3.1.
+
 ## 3.3.0
 
 * Update Facility.
