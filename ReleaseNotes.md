@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.4.0-beta.1
+
+* Support nullable fields.
+
 ## 3.3.3
 
 * Fix build that didn't work properly on .NET 5 or .NET Core 3.1.
