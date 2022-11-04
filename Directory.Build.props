@@ -1,7 +1,8 @@
 <Project>
 
   <PropertyGroup>
-    <VersionPrefix>3.3.3</VersionPrefix>
+    <VersionPrefix>3.4.0</VersionPrefix>
+    <VersionSuffix>beta.1</VersionSuffix>
     <LangVersion>10.0</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -31,8 +32,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <FacilityVersion>2.7.1</FacilityVersion>
-    <FacilityCSharpVersion>2.14.5</FacilityCSharpVersion>
+    <FacilityVersion>2.8.0-beta.1</FacilityVersion>
+    <FacilityCSharpVersion>2.17.0-beta.1</FacilityCSharpVersion>
   </PropertyGroup>
 
   <ItemGroup>
