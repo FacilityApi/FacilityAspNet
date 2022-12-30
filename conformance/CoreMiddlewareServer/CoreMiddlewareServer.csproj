@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -12,7 +12,6 @@
   <ItemGroup>
     <PackageReference Include="Facility.ConformanceApi" Version="$(FacilityCSharpVersion)" />
     <PackageReference Include="Facility.Core" Version="$(FacilityCSharpVersion)" />
-    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
