@@ -1,5 +1,10 @@
 # Release Notes
 
+## 3.5.0
+
+* Update dependencies.
+* Add .NET 7; remove .NET Core 3.1 and .NET 5.
+
 ## 3.4.0
 
 * Support nullable fields.
