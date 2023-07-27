@@ -1,6 +1,6 @@
 # Release Notes
 
-## 3.6.0-beta.1
+## 3.6.0
 
 * Support `extern` data and enum types.
 
