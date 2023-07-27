@@ -3,10 +3,6 @@ using Facility.ConformanceApi;
 using Facility.ConformanceApi.Http;
 using Facility.ConformanceApi.Testing;
 using Facility.Core;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace CoreMiddlewareServer
 {

@@ -54,20 +54,17 @@ namespace Facility.AspNetCore
 			foreach (var header in responseHeaders)
 				contextResponse.Headers.Append(header.Key, header.Value.ToArray());
 
-			if (httpResponseMessage.Content != null)
-			{
-				var contentHeaders = httpResponseMessage.Content.Headers;
+			var contentHeaders = httpResponseMessage.Content.Headers;
 
-				// Copy the response content headers only after ensuring they are complete.
-				// We ask for Content-Length first because HttpContent lazily computes this
-				// and only afterwards writes the value into the content headers.
-				var unused = contentHeaders.ContentLength;
+			// Copy the response content headers only after ensuring they are complete.
+			// We ask for Content-Length first because HttpContent lazily computes this
+			// and only afterwards writes the value into the content headers.
+			_ = contentHeaders.ContentLength;
 
-				foreach (var header in contentHeaders)
-					contextResponse.Headers.Append(header.Key, header.Value.ToArray());
+			foreach (var header in contentHeaders)
+				contextResponse.Headers.Append(header.Key, header.Value.ToArray());
 
-				await httpResponseMessage.Content.CopyToAsync(contextResponse.Body).ConfigureAwait(false);
-			}
+			await httpResponseMessage.Content.CopyToAsync(contextResponse.Body).ConfigureAwait(false);
 		}
 	}
 }
