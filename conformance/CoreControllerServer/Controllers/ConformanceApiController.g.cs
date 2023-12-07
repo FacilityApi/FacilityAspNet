@@ -62,7 +62,7 @@ namespace CoreControllerServer.Controllers
 			return GetServiceHttpHandler().TryHandleCheckQueryAsync(httpRequest, cancellationToken);
 		}
 
-		[HttpGet, Route("checkPath/{string}/{boolean}/{double}/{int32}/{int64}/{decimal}/{enum}")]
+		[HttpGet, Route("checkPath/{string}/{boolean}/{double}/{int32}/{int64}/{decimal}/{enum}/{datetime}")]
 		public Task<HttpResponseMessage> CheckPath(HttpRequestMessage httpRequest, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			return GetServiceHttpHandler().TryHandleCheckPathAsync(httpRequest, cancellationToken);
