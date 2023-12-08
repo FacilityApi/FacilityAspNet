@@ -7,8 +7,7 @@ namespace Facility.AspNetCore
 	{
 		public override void OnActionExecuting(ActionExecutingContext context)
 		{
-			if (context.ActionArguments.ContainsKey(c_httpRequestKey) &&
-				context.ActionArguments[c_httpRequestKey]!.GetType() == typeof(HttpRequestMessage))
+			if (context.ActionArguments.TryGetValue(c_httpRequestKey, out var request) && request?.GetType() == typeof(HttpRequestMessage))
 			{
 				context.ActionArguments[c_httpRequestKey] = FacilityAspNetCoreUtility.CreateHttpRequestMessage(context.HttpContext.Request);
 			}

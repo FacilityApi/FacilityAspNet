@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.7.0
+
+* Update Facility and FacilityCSharp to add support for `datetime` fields.
+
 ## 3.6.0
 
 * Support `extern` data and enum types.
