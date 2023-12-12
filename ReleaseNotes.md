@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.8.0
+
+* Add `FacilityExceptionHandlerOptions.ContentSerializer`.
+
 ## 3.7.0
 
 * Update Facility and FacilityCSharp to add support for `datetime` fields.

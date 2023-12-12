@@ -27,19 +27,32 @@ namespace Facility.AspNetCore
 		/// Adds a Facility service exception handler to the pipeline.
 		/// </summary>
 		/// <remarks>Do not include error details in production.</remarks>
-		public static IApplicationBuilder UseFacilityExceptionHandler(this IApplicationBuilder builder, bool includeErrorDetails = false)
+		public static IApplicationBuilder UseFacilityExceptionHandler(this IApplicationBuilder builder, Action<FacilityExceptionHandlerOptions>? configure = null)
 		{
 			if (builder == null)
 				throw new ArgumentNullException(nameof(builder));
 
+			var options = new FacilityExceptionHandlerOptions();
+			configure?.Invoke(options);
+
+			var includeErrorDetails = options.IncludeErrorDetails;
+			var contentSerializer = options.ContentSerializer ?? HttpContentSerializer.Create(SystemTextJsonServiceSerializer.Instance);
+
 			return builder.UseExceptionHandler(
-				options => options.Run(async context =>
+				x => x.Run(async context =>
 				{
 					var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
 					var error = includeErrorDetails && exception != null ? ServiceErrorUtility.CreateInternalErrorForException(exception) : ServiceErrors.CreateInternalError();
-					using var httpResponseMessage = FacilityAspNetCoreUtility.CreateHttpResponseMessage(error);
+					using var httpResponseMessage = FacilityAspNetCoreUtility.CreateHttpResponseMessage(error, contentSerializer);
 					await FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync(httpResponseMessage, context.Response);
 				}));
 		}
+
+		/// <summary>
+		/// Adds a Facility service exception handler to the pipeline.
+		/// </summary>
+		/// <remarks>Do not include error details in production.</remarks>
+		public static IApplicationBuilder UseFacilityExceptionHandler(this IApplicationBuilder builder, bool includeErrorDetails) =>
+			builder.UseFacilityExceptionHandler(x => x.IncludeErrorDetails = includeErrorDetails);
 	}
 }
