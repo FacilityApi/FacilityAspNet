@@ -1,7 +1,8 @@
 # FacilityAspNetCoreUtility.CreateHttpResponseMessage method (1 of 2)
 
 ```csharp
-public static HttpResponseMessage CreateHttpResponseMessage(Exception exception)
+public static HttpResponseMessage CreateHttpResponseMessage(Exception exception, 
+    HttpContentSerializer contentSerializer)
 ```
 
 ## See Also
@@ -14,7 +15,8 @@ public static HttpResponseMessage CreateHttpResponseMessage(Exception exception)
 # FacilityAspNetCoreUtility.CreateHttpResponseMessage method (2 of 2)
 
 ```csharp
-public static HttpResponseMessage CreateHttpResponseMessage(ServiceErrorDto error)
+public static HttpResponseMessage CreateHttpResponseMessage(ServiceErrorDto error, 
+    HttpContentSerializer contentSerializer)
 ```
 
 ## See Also

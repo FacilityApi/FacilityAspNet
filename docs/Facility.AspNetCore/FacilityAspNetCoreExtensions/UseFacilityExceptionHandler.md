@@ -1,10 +1,31 @@
-# FacilityAspNetCoreExtensions.UseFacilityExceptionHandler method
+# FacilityAspNetCoreExtensions.UseFacilityExceptionHandler method (1 of 2)
 
 Adds a Facility service exception handler to the pipeline.
 
 ```csharp
 public static IApplicationBuilder UseFacilityExceptionHandler(this IApplicationBuilder builder, 
-    bool includeErrorDetails = false)
+    Action<FacilityExceptionHandlerOptions>? configure = null)
+```
+
+## Remarks
+
+Do not include error details in production.
+
+## See Also
+
+* class [FacilityExceptionHandlerOptions](../FacilityExceptionHandlerOptions.md)
+* class [FacilityAspNetCoreExtensions](../FacilityAspNetCoreExtensions.md)
+* namespace [Facility.AspNetCore](../../Facility.AspNetCore.md)
+
+---
+
+# FacilityAspNetCoreExtensions.UseFacilityExceptionHandler method (2 of 2)
+
+Adds a Facility service exception handler to the pipeline.
+
+```csharp
+public static IApplicationBuilder UseFacilityExceptionHandler(this IApplicationBuilder builder, 
+    bool includeErrorDetails)
 ```
 
 ## Remarks

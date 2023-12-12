@@ -10,7 +10,7 @@ public static class FacilityAspNetCoreExtensions
 
 | name | description |
 | --- | --- |
-| static [UseFacilityExceptionHandler](FacilityAspNetCoreExtensions/UseFacilityExceptionHandler.md)(…) | Adds a Facility service exception handler to the pipeline. |
+| static [UseFacilityExceptionHandler](FacilityAspNetCoreExtensions/UseFacilityExceptionHandler.md)(…) | Adds a Facility service exception handler to the pipeline. (2 methods) |
 | static [UseFacilityHttpHandler&lt;T&gt;](FacilityAspNetCoreExtensions/UseFacilityHttpHandler.md)(…) | Adds a Facility service HTTP handler to the pipeline. |
 
 ## See Also
