@@ -28,16 +28,21 @@ namespace Facility.AspNetCore
 			return httpRequestMessage;
 		}
 
+		[Obsolete("Specify contentSerializer.")]
 		public static HttpResponseMessage CreateHttpResponseMessage(Exception exception) =>
-			CreateHttpResponseMessage(ServiceErrorUtility.CreateInternalErrorForException(exception));
+			CreateHttpResponseMessage(exception, HttpContentSerializer.Create(SystemTextJsonServiceSerializer.Instance));
 
-		public static HttpResponseMessage CreateHttpResponseMessage(ServiceErrorDto error)
+		[Obsolete("Specify contentSerializer.")]
+		public static HttpResponseMessage CreateHttpResponseMessage(ServiceErrorDto error) =>
+			CreateHttpResponseMessage(error, HttpContentSerializer.Create(SystemTextJsonServiceSerializer.Instance));
+
+		public static HttpResponseMessage CreateHttpResponseMessage(Exception exception, HttpContentSerializer contentSerializer) =>
+			CreateHttpResponseMessage(ServiceErrorUtility.CreateInternalErrorForException(exception), contentSerializer);
+
+		public static HttpResponseMessage CreateHttpResponseMessage(ServiceErrorDto error, HttpContentSerializer contentSerializer)
 		{
 			var statusCode = HttpServiceErrors.TryGetHttpStatusCode(error.Code) ?? HttpStatusCode.InternalServerError;
-			return new HttpResponseMessage(statusCode)
-			{
-				Content = HttpContentSerializer.Create(SystemTextJsonServiceSerializer.Instance).CreateHttpContent(error),
-			};
+			return new HttpResponseMessage(statusCode) { Content = contentSerializer.CreateHttpContent(error) };
 		}
 
 		public static async Task WriteHttpResponseMessageAsync(HttpResponseMessage httpResponseMessage, HttpResponse contextResponse)
