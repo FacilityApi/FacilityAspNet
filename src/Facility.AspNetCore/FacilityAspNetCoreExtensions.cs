@@ -17,8 +17,7 @@ namespace Facility.AspNetCore
 		public static IApplicationBuilder UseFacilityHttpHandler<T>(this IApplicationBuilder builder)
 			where T : ServiceHttpHandler
 		{
-			if (builder == null)
-				throw new ArgumentNullException(nameof(builder));
+			ArgumentNullException.ThrowIfNull(builder);
 
 			return builder.UseMiddleware<FacilityAspNetCoreMiddleware<T>>();
 		}
@@ -29,8 +28,7 @@ namespace Facility.AspNetCore
 		/// <remarks>Do not include error details in production.</remarks>
 		public static IApplicationBuilder UseFacilityExceptionHandler(this IApplicationBuilder builder, Action<FacilityExceptionHandlerOptions>? configure = null)
 		{
-			if (builder == null)
-				throw new ArgumentNullException(nameof(builder));
+			ArgumentNullException.ThrowIfNull(builder);
 
 			var options = new FacilityExceptionHandlerOptions();
 			configure?.Invoke(options);

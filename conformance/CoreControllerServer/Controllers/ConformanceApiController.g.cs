@@ -8,6 +8,7 @@ using Facility.Core;
 using Microsoft.AspNetCore.Mvc;
 
 #pragma warning disable 1591 // missing XML comment
+#pragma warning disable ASP0018 // Unused route parameter
 
 namespace CoreControllerServer.Controllers
 {

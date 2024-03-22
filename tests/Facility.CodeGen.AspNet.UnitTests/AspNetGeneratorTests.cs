@@ -14,7 +14,7 @@ namespace Facility.CodeGen.AspNet.UnitTests
 			const string fileName = "Facility.CodeGen.AspNet.UnitTests.ConformanceApi.fsd";
 			var parser = new FsdParser();
 			var stream = GetType().GetTypeInfo().Assembly.GetManifestResourceStream(fileName);
-			Assert.IsNotNull(stream);
+			Assert.That(stream, Is.Not.Null);
 			using (var reader = new StreamReader(stream!))
 				service = parser.ParseDefinition(new ServiceDefinitionText(Path.GetFileName(fileName), reader.ReadToEnd()));
 

@@ -60,6 +60,8 @@ namespace Facility.CodeGen.AspNet
 				CSharpUtility.WriteUsings(code, usings, namespaceName);
 
 				code.WriteLine("#pragma warning disable 1591 // missing XML comment");
+				if (TargetFramework != AspNetFramework.WebApi)
+					code.WriteLine("#pragma warning disable ASP0018 // Unused route parameter");
 				code.WriteLine();
 
 				code.WriteLine($"namespace {namespaceName}");

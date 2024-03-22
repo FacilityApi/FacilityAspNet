@@ -9,20 +9,20 @@ namespace fsdgenaspnet
 	{
 		public static int Main(string[] args) => new FsdGenAspNetApp().Run(args);
 
-		protected override IReadOnlyList<string> Description => new[]
-		{
+		protected override IReadOnlyList<string> Description =>
+		[
 			"Generates ASP.NET for a Facility Service Definition.",
-		};
+		];
 
-		protected override IReadOnlyList<string> ExtraUsage => new[]
-		{
+		protected override IReadOnlyList<string> ExtraUsage =>
+		[
 			"   --namespace <name>",
 			"      The namespace used by the generated code.",
 			"   --api-namespace <name>",
 			"      The namespace used by the API class library.",
 			"   --target (webapi|core)",
 			"      The target ASP.NET framework (default webapi).",
-		};
+		];
 
 		protected override CodeGenerator CreateGenerator() => new AspNetGenerator();
 

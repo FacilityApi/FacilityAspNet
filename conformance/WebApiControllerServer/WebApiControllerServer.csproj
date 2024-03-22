@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
@@ -11,9 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Facility.ConformanceApi" Version="$(FacilityCSharpVersion)" />
-    <PackageReference Include="Facility.Core" Version="$(FacilityCSharpVersion)" />
-    <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost" Version="5.2.9" />
+    <PackageReference Include="Facility.ConformanceApi" />
+    <PackageReference Include="Facility.Core" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost" />
   </ItemGroup>
 
 </Project>
