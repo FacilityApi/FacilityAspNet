@@ -1,10 +1,9 @@
 using System.Web.Http;
 using Facility.ConformanceApi.Http;
 
-namespace WebApiControllerServer.Controllers
+namespace WebApiControllerServer.Controllers;
+
+public partial class ConformanceApiController : ApiController
 {
-	public partial class ConformanceApiController : ApiController
-	{
-		private ConformanceApiHttpHandler GetServiceHttpHandler() => new ConformanceApiHttpHandler(WebApiControllerServerApp.Service);
-	}
+	private ConformanceApiHttpHandler GetServiceHttpHandler() => new ConformanceApiHttpHandler(WebApiControllerServerApp.Service);
 }

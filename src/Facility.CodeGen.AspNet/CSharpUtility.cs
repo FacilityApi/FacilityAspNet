@@ -1,59 +1,58 @@
 using Facility.Definition;
 using Facility.Definition.CodeGen;
 
-namespace Facility.CodeGen.AspNet
+namespace Facility.CodeGen.AspNet;
+
+internal static class CSharpUtility
 {
-	internal static class CSharpUtility
+	public static void WriteFileHeader(CodeWriter code, string generatorName)
 	{
-		public static void WriteFileHeader(CodeWriter code, string generatorName)
+		code.WriteLine("// " + CodeGenUtility.GetCodeGenComment(generatorName));
+	}
+
+	public static void WriteCodeGenAttribute(CodeWriter code, string generatorName)
+	{
+		code.WriteLine($"[System.CodeDom.Compiler.GeneratedCode(\"{generatorName}\", \"\")]");
+	}
+
+	public static void WriteObsoleteAttribute(CodeWriter code, ServiceElementWithAttributesInfo element)
+	{
+		if (element.IsObsolete)
+			code.WriteLine("[Obsolete]");
+	}
+
+	public static void WriteUsings(CodeWriter code, IEnumerable<string> namespaceNames, string namespaceName)
+	{
+		var sortedNamespaceNames = namespaceNames.Distinct().Where(x => namespaceName != x && !namespaceName.StartsWith(x + ".", StringComparison.Ordinal)).ToList();
+		sortedNamespaceNames.Sort(CompareUsings);
+		if (sortedNamespaceNames.Count != 0)
 		{
-			code.WriteLine("// " + CodeGenUtility.GetCodeGenComment(generatorName));
+			foreach (string namepaceName in sortedNamespaceNames)
+				code.WriteLine("using " + namepaceName + ";");
+			code.WriteLine();
 		}
+	}
 
-		public static void WriteCodeGenAttribute(CodeWriter code, string generatorName)
-		{
-			code.WriteLine($"[System.CodeDom.Compiler.GeneratedCode(\"{generatorName}\", \"\")]");
-		}
+	public const string FileExtension = ".g.cs";
 
-		public static void WriteObsoleteAttribute(CodeWriter code, ServiceElementWithAttributesInfo element)
-		{
-			if (element.IsObsolete)
-				code.WriteLine("[Obsolete]");
-		}
+	public static string GetNamespaceName(ServiceInfo serviceInfo)
+	{
+		return serviceInfo.TryGetAttribute("csharp")?.TryGetParameterValue("namespace") ?? CodeGenUtility.Capitalize(serviceInfo.Name);
+	}
 
-		public static void WriteUsings(CodeWriter code, IEnumerable<string> namespaceNames, string namespaceName)
-		{
-			var sortedNamespaceNames = namespaceNames.Distinct().Where(x => namespaceName != x && !namespaceName.StartsWith(x + ".", StringComparison.Ordinal)).ToList();
-			sortedNamespaceNames.Sort(CompareUsings);
-			if (sortedNamespaceNames.Count != 0)
-			{
-				foreach (string namepaceName in sortedNamespaceNames)
-					code.WriteLine("using " + namepaceName + ";");
-				code.WriteLine();
-			}
-		}
+	private static int CompareUsings(string left, string right)
+	{
+		int leftGroup = GetUsingGroup(left);
+		int rightGroup = GetUsingGroup(right);
+		int result = leftGroup.CompareTo(rightGroup);
+		if (result != 0)
+			return result;
 
-		public const string FileExtension = ".g.cs";
+		return string.CompareOrdinal(left, right);
+	}
 
-		public static string GetNamespaceName(ServiceInfo serviceInfo)
-		{
-			return serviceInfo.TryGetAttribute("csharp")?.TryGetParameterValue("namespace") ?? CodeGenUtility.Capitalize(serviceInfo.Name);
-		}
-
-		private static int CompareUsings(string left, string right)
-		{
-			int leftGroup = GetUsingGroup(left);
-			int rightGroup = GetUsingGroup(right);
-			int result = leftGroup.CompareTo(rightGroup);
-			if (result != 0)
-				return result;
-
-			return string.CompareOrdinal(left, right);
-		}
-
-		private static int GetUsingGroup(string namespaceName)
-		{
-			return namespaceName == "System" || namespaceName.StartsWith("System.", StringComparison.Ordinal) ? 1 : 2;
-		}
+	private static int GetUsingGroup(string namespaceName)
+	{
+		return namespaceName == "System" || namespaceName.StartsWith("System.", StringComparison.Ordinal) ? 1 : 2;
 	}
 }
