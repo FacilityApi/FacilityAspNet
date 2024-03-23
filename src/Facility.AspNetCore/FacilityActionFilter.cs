@@ -8,14 +8,12 @@ public sealed class FacilityActionFilter : ActionFilterAttribute
 	public override void OnActionExecuting(ActionExecutingContext context)
 	{
 		if (context.ActionArguments.TryGetValue(c_httpRequestKey, out var request) && request?.GetType() == typeof(HttpRequestMessage))
-		{
 			context.ActionArguments[c_httpRequestKey] = FacilityAspNetCoreUtility.CreateHttpRequestMessage(context.HttpContext.Request);
-		}
 	}
 
 	public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
 	{
-		if (context.Result is ObjectResult contextResult && contextResult.Value is HttpResponseMessage httpResponseMessage)
+		if (context.Result is ObjectResult { Value: HttpResponseMessage httpResponseMessage })
 			await WriteAndDisposeHttpResponseMessage(httpResponseMessage, context);
 		else
 			await next();

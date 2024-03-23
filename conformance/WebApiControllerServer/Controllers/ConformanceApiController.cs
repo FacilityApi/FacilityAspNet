@@ -5,5 +5,5 @@ namespace WebApiControllerServer.Controllers;
 
 public partial class ConformanceApiController : ApiController
 {
-	private ConformanceApiHttpHandler GetServiceHttpHandler() => new ConformanceApiHttpHandler(WebApiControllerServerApp.Service);
+	private ConformanceApiHttpHandler GetServiceHttpHandler() => new(WebApiControllerServerApp.Service);
 }

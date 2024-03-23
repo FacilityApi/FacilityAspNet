@@ -11,7 +11,7 @@ public partial class ConformanceApiController : Controller
 		m_api = api;
 	}
 
-	private ConformanceApiHttpHandler GetServiceHttpHandler() => new ConformanceApiHttpHandler(m_api);
+	private ConformanceApiHttpHandler GetServiceHttpHandler() => new(m_api);
 
 	private readonly IConformanceApi m_api;
 }

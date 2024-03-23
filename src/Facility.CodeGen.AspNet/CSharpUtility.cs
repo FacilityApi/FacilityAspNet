@@ -5,15 +5,11 @@ namespace Facility.CodeGen.AspNet;
 
 internal static class CSharpUtility
 {
-	public static void WriteFileHeader(CodeWriter code, string generatorName)
-	{
+	public static void WriteFileHeader(CodeWriter code, string generatorName) =>
 		code.WriteLine("// " + CodeGenUtility.GetCodeGenComment(generatorName));
-	}
 
-	public static void WriteCodeGenAttribute(CodeWriter code, string generatorName)
-	{
+	public static void WriteCodeGenAttribute(CodeWriter code, string generatorName) =>
 		code.WriteLine($"[System.CodeDom.Compiler.GeneratedCode(\"{generatorName}\", \"\")]");
-	}
 
 	public static void WriteObsoleteAttribute(CodeWriter code, ServiceElementWithAttributesInfo element)
 	{
@@ -27,7 +23,7 @@ internal static class CSharpUtility
 		sortedNamespaceNames.Sort(CompareUsings);
 		if (sortedNamespaceNames.Count != 0)
 		{
-			foreach (string namepaceName in sortedNamespaceNames)
+			foreach (var namepaceName in sortedNamespaceNames)
 				code.WriteLine("using " + namepaceName + ";");
 			code.WriteLine();
 		}
@@ -35,24 +31,17 @@ internal static class CSharpUtility
 
 	public const string FileExtension = ".g.cs";
 
-	public static string GetNamespaceName(ServiceInfo serviceInfo)
-	{
-		return serviceInfo.TryGetAttribute("csharp")?.TryGetParameterValue("namespace") ?? CodeGenUtility.Capitalize(serviceInfo.Name);
-	}
+	public static string GetNamespaceName(ServiceInfo serviceInfo) =>
+		serviceInfo.TryGetAttribute("csharp")?.TryGetParameterValue("namespace") ?? CodeGenUtility.Capitalize(serviceInfo.Name);
 
 	private static int CompareUsings(string left, string right)
 	{
-		int leftGroup = GetUsingGroup(left);
-		int rightGroup = GetUsingGroup(right);
-		int result = leftGroup.CompareTo(rightGroup);
-		if (result != 0)
-			return result;
-
-		return string.CompareOrdinal(left, right);
+		var leftGroup = GetUsingGroup(left);
+		var rightGroup = GetUsingGroup(right);
+		var result = leftGroup.CompareTo(rightGroup);
+		return result != 0 ? result : string.CompareOrdinal(left, right);
 	}
 
-	private static int GetUsingGroup(string namespaceName)
-	{
-		return namespaceName == "System" || namespaceName.StartsWith("System.", StringComparison.Ordinal) ? 1 : 2;
-	}
+	private static int GetUsingGroup(string namespaceName) =>
+		namespaceName == "System" || namespaceName.StartsWith("System.", StringComparison.Ordinal) ? 1 : 2;
 }
