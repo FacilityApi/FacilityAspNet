@@ -24,7 +24,8 @@ public static class CoreControllerServerApp
 				Tests = LoadTests(),
 				JsonSerializer = JsonSerializer,
 			}));
-			services.AddControllers(options => options.Filters.Add<FacilityActionFilter>());
+			services.AddControllers(options => options.Filters.Add<FacilityActionFilter>())
+				.AddJsonOptions(options => SystemTextJsonServiceSerializer.ConfigureJsonSerializerOptions(options.JsonSerializerOptions));
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
