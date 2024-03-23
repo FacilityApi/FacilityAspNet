@@ -24,7 +24,6 @@ public static class CoreControllerServerApp
 				Tests = LoadTests(),
 				JsonSerializer = JsonSerializer,
 			}));
-			services.AddSingleton<FacilityActionFilter>();
 			services.AddControllers(options => options.Filters.Add<FacilityActionFilter>());
 		}
 
