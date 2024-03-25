@@ -13,20 +13,20 @@ public partial class ConformanceApiController : Controller
 	}
 
 	// should return 200 with {"id":1} (no name)
-	[HttpGet, Route("ServiceDto")]
+	[HttpGet, Route("action/dto")]
 	public WidgetDto ServiceDto() => new() { Id = 1 };
 
+	// should return 413 with {"code":"RequestTooLarge","message":"The request is too large."}
+	[HttpGet, Route("action/error")]
+	public ServiceErrorDto ServiceErrorDto() => ServiceErrors.CreateRequestTooLarge();
+
 	// should return 200 with {"id":1} (no name)
-	[HttpGet, Route("ServiceResultSuccess")]
+	[HttpGet, Route("action/success")]
 	public ServiceResult<WidgetDto> ServiceResultSuccess() => ServiceResult.Success(new WidgetDto { Id = 1 });
 
 	// should return 413 with {"code":"RequestTooLarge","message":"The request is too large."}
-	[HttpGet, Route("ServiceResultFailure")]
+	[HttpGet, Route("action/failure")]
 	public ServiceResult<WidgetDto> ServiceResultFailure() => ServiceResult.Failure(ServiceErrors.CreateRequestTooLarge());
-
-	// should return 413 with {"code":"RequestTooLarge","message":"The request is too large."}
-	[HttpGet, Route("ServiceErrorDto")]
-	public ServiceErrorDto ServiceErrorDto() => ServiceErrors.CreateRequestTooLarge();
 
 	private ConformanceApiHttpHandler GetServiceHttpHandler() => new(m_api);
 

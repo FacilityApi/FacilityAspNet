@@ -10,7 +10,6 @@ release/
 *.ncrunchproject
 *.ncrunchsolution
 *.user
-launchSettings.json
 nCrunchTemp*
 _ReSharper*
 .DS_Store
