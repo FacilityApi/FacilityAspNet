@@ -6,8 +6,12 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Facility.AspNetCore;
 
+/// <summary>
+/// Supports Facility types in controller actions (including code-generated controllers).
+/// </summary>
 public sealed class FacilityActionFilter : ActionFilterAttribute
 {
+	/// <inheritdoc />
 	public override void OnActionExecuting(ActionExecutingContext context)
 	{
 		// replace empty httpRequest argument with the actual request
@@ -15,6 +19,7 @@ public sealed class FacilityActionFilter : ActionFilterAttribute
 			context.ActionArguments[c_httpRequestKey] = FacilityAspNetCoreUtility.CreateHttpRequestMessage(context.HttpContext.Request);
 	}
 
+	/// <inheritdoc />
 	public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
 	{
 		// special response handling for Facility types

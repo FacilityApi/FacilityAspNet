@@ -6,8 +6,14 @@ using Microsoft.AspNetCore.Http.Extensions;
 
 namespace Facility.AspNetCore;
 
+/// <summary>
+/// Utility methods for using Facility with ASP.NET Core.
+/// </summary>
 public sealed class FacilityAspNetCoreUtility
 {
+	/// <summary>
+	/// Converts an <c>HttpRequest</c> to an <c>HttpRequestMessage</c>.
+	/// </summary>
 	public static HttpRequestMessage CreateHttpRequestMessage(HttpRequest httpRequest)
 	{
 		var encodedUrl = httpRequest.GetEncodedUrl();
@@ -36,15 +42,24 @@ public sealed class FacilityAspNetCoreUtility
 	public static HttpResponseMessage CreateHttpResponseMessage(ServiceErrorDto error) =>
 		CreateHttpResponseMessage(error, HttpContentSerializer.Create(SystemTextJsonServiceSerializer.Instance));
 
+	/// <summary>
+	/// Creates an <c>HttpResponseMessage</c> for an exception.
+	/// </summary>
 	public static HttpResponseMessage CreateHttpResponseMessage(Exception exception, HttpContentSerializer contentSerializer) =>
 		CreateHttpResponseMessage(ServiceErrorUtility.CreateInternalErrorForException(exception), contentSerializer);
 
+	/// <summary>
+	/// Creates an <c>HttpResponseMessage</c> for an error.
+	/// </summary>
 	public static HttpResponseMessage CreateHttpResponseMessage(ServiceErrorDto error, HttpContentSerializer contentSerializer)
 	{
 		var statusCode = HttpServiceErrors.TryGetHttpStatusCode(error.Code) ?? HttpStatusCode.InternalServerError;
 		return new HttpResponseMessage(statusCode) { Content = contentSerializer.CreateHttpContent(error) };
 	}
 
+	/// <summary>
+	/// Writes an <c>HttpResponseMessage</c> to an <c>HttpResponse</c>.
+	/// </summary>
 	public static async Task WriteHttpResponseMessageAsync(HttpResponseMessage httpResponseMessage, HttpResponse contextResponse)
 	{
 		contextResponse.StatusCode = (int) httpResponseMessage.StatusCode;

@@ -6,8 +6,12 @@ using Microsoft.AspNetCore.Http;
 
 namespace Facility.AspNetCore;
 
+/// <summary>
+/// Supports Facility types returned from API routes (<c>ServiceResult</c> and <c>ServiceError</c>).
+/// </summary>
 public sealed class FacilityEndpointFilter : IEndpointFilter
 {
+	/// <inheritdoc />
 	public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
 	{
 		var result = await next(context);
