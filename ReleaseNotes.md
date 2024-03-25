@@ -1,5 +1,11 @@
 # Release Notes
 
+## 3.9.0
+
+* Add support for service results and errors to `FacilityActionFilter` for controllers.
+* Add support for service results and errors to `FacilityEndpointFilter` for minimal API routes.
+* Add .NET 8 targets.
+
 ## 3.8.0
 
 * Add `FacilityExceptionHandlerOptions.ContentSerializer`.
