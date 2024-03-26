@@ -1,5 +1,7 @@
 # FacilityExceptionHandlerOptions class
 
+Options for `FacilityAspNetCoreExtensions.UseFacilityExceptionHandler`.
+
 ```csharp
 public sealed class FacilityExceptionHandlerOptions
 ```
@@ -9,8 +11,8 @@ public sealed class FacilityExceptionHandlerOptions
 | name | description |
 | --- | --- |
 | [FacilityExceptionHandlerOptions](FacilityExceptionHandlerOptions/FacilityExceptionHandlerOptions.md)() | The default constructor. |
-| [ContentSerializer](FacilityExceptionHandlerOptions/ContentSerializer.md) { get; set; } |  |
-| [IncludeErrorDetails](FacilityExceptionHandlerOptions/IncludeErrorDetails.md) { get; set; } |  |
+| [ContentSerializer](FacilityExceptionHandlerOptions/ContentSerializer.md) { get; set; } | The content serializer to use when writing an error to the response. |
+| [IncludeErrorDetails](FacilityExceptionHandlerOptions/IncludeErrorDetails.md) { get; set; } | True to include error details. Not for production. |
 
 ## See Also
 

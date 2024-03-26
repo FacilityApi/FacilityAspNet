@@ -1,5 +1,7 @@
 # FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync method
 
+Writes an `HttpResponseMessage` to an `HttpResponse`.
+
 ```csharp
 public static Task WriteHttpResponseMessageAsync(HttpResponseMessage httpResponseMessage, 
     HttpResponse contextResponse)

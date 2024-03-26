@@ -1,5 +1,7 @@
 # FacilityAspNetCoreUtility.CreateHttpResponseMessage method (1 of 2)
 
+Creates an `HttpResponseMessage` for an exception.
+
 ```csharp
 public static HttpResponseMessage CreateHttpResponseMessage(Exception exception, 
     HttpContentSerializer contentSerializer)
@@ -13,6 +15,8 @@ public static HttpResponseMessage CreateHttpResponseMessage(Exception exception,
 ---
 
 # FacilityAspNetCoreUtility.CreateHttpResponseMessage method (2 of 2)
+
+Creates an `HttpResponseMessage` for an error.
 
 ```csharp
 public static HttpResponseMessage CreateHttpResponseMessage(ServiceErrorDto error, 

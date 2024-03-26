@@ -1,5 +1,7 @@
 # FacilityActionFilter class
 
+Supports Facility types in controller actions (including code-generated controllers).
+
 ```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
 public sealed class FacilityActionFilter : ActionFilterAttribute

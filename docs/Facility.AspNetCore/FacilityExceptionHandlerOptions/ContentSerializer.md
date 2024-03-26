@@ -1,5 +1,7 @@
 # FacilityExceptionHandlerOptions.ContentSerializer property
 
+The content serializer to use when writing an error to the response.
+
 ```csharp
 public HttpContentSerializer? ContentSerializer { get; set; }
 ```

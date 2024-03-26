@@ -1,5 +1,7 @@
 # FacilityAspNetCoreUtility.CreateHttpRequestMessage method
 
+Converts an `HttpRequest` to an `HttpRequestMessage`.
+
 ```csharp
 public static HttpRequestMessage CreateHttpRequestMessage(HttpRequest httpRequest)
 ```

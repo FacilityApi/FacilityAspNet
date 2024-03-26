@@ -1,5 +1,7 @@
 # FacilityExceptionHandlerOptions.IncludeErrorDetails property
 
+True to include error details. Not for production.
+
 ```csharp
 public bool IncludeErrorDetails { get; set; }
 ```

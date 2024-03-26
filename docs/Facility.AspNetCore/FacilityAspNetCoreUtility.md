@@ -1,5 +1,7 @@
 # FacilityAspNetCoreUtility class
 
+Utility methods for using Facility with ASP.NET Core.
+
 ```csharp
 public sealed class FacilityAspNetCoreUtility
 ```
@@ -9,9 +11,9 @@ public sealed class FacilityAspNetCoreUtility
 | name | description |
 | --- | --- |
 | [FacilityAspNetCoreUtility](FacilityAspNetCoreUtility/FacilityAspNetCoreUtility.md)() | The default constructor. |
-| static [CreateHttpRequestMessage](FacilityAspNetCoreUtility/CreateHttpRequestMessage.md)(…) |  |
-| static [CreateHttpResponseMessage](FacilityAspNetCoreUtility/CreateHttpResponseMessage.md)(…) |  (2 methods) |
-| static [WriteHttpResponseMessageAsync](FacilityAspNetCoreUtility/WriteHttpResponseMessageAsync.md)(…) |  |
+| static [CreateHttpRequestMessage](FacilityAspNetCoreUtility/CreateHttpRequestMessage.md)(…) | Converts an `HttpRequest` to an `HttpRequestMessage`. |
+| static [CreateHttpResponseMessage](FacilityAspNetCoreUtility/CreateHttpResponseMessage.md)(…) | Creates an `HttpResponseMessage` for an exception. (2 methods) |
+| static [WriteHttpResponseMessageAsync](FacilityAspNetCoreUtility/WriteHttpResponseMessageAsync.md)(…) | Writes an `HttpResponseMessage` to an `HttpResponse`. |
 
 ## See Also
 
