@@ -104,5 +104,11 @@ namespace CoreControllerServer.Controllers
 		{
 			return GetServiceHttpHandler().TryHandleBodyTypesAsync(httpRequest, cancellationToken);
 		}
+
+		[HttpGet, Route("fibonacci")]
+		public Task<HttpResponseMessage> Fibonacci(HttpRequestMessage httpRequest, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			return GetServiceHttpHandler().TryHandleFibonacciAsync(httpRequest, cancellationToken);
+		}
 	}
 }

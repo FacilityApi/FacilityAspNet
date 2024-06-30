@@ -1,4 +1,6 @@
+using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Hosting;
 using Facility.ConformanceApi.Http;
 using Facility.ConformanceApi.Testing;
 using Facility.Core;
@@ -32,7 +34,14 @@ public static class WebApiMiddlewareServerApp
 				Tests = LoadTests(),
 				JsonSerializer = JsonSerializer,
 			})));
+			configuration.Services.Replace(typeof(IHostBufferPolicySelector), new NoBufferPolicySelector());
 			app.UseWebApi(configuration);
+		}
+
+		private sealed class NoBufferPolicySelector : IHostBufferPolicySelector
+		{
+			public bool UseBufferedInputStream(object hostContext) => false;
+			public bool UseBufferedOutputStream(HttpResponseMessage response) => false; //// required for event streaming
 		}
 	}
 
