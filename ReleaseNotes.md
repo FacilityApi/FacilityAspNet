@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.10.0-events.1
+
+* Support events. (Must opt-in via `FsdParserSettings.SupportsEvents`.)
+
 ## 3.9.0
 
 * Add support for service results and errors to `FacilityActionFilter` for controllers.
