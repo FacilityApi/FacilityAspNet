@@ -12,7 +12,7 @@ services.AddSingleton<IConformanceApi>(_ =>
 	using var testsJsonReader = new StreamReader(typeof(Program).Assembly.GetManifestResourceStream("CoreControllerServer.ConformanceTests.json")!);
 	return new ConformanceApiService(new ConformanceApiServiceSettings
 	{
-		Tests = ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd(), SystemTextJsonServiceSerializer.Instance).Tests!,
+		Tests = ConformanceTestsInfo.FromJson(testsJsonReader.ReadToEnd()).Tests!,
 		JsonSerializer = SystemTextJsonServiceSerializer.Instance,
 	});
 });

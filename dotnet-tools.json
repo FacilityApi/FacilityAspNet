@@ -3,10 +3,11 @@
   "isRoot": true,
   "tools": {
     "facilityconformance": {
-      "version": "2.25.0",
+      "version": "2.28.2",
       "commands": [
         "FacilityConformance"
-      ]
+      ],
+      "rollForward": false
     }
   }
 }
