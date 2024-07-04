@@ -3,11 +3,12 @@
 Generates an ASP.NET controller.
 
 ```csharp
-public static int GenerateAspNet(AspNetGeneratorSettings settings)
+public static int GenerateAspNet(ServiceParser parser, AspNetGeneratorSettings settings)
 ```
 
 | parameter | description |
 | --- | --- |
+| parser | The parser. |
 | settings | The settings. |
 
 ## Return Value
