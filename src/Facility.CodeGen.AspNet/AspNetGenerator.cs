@@ -1,5 +1,6 @@
 using Facility.Definition;
 using Facility.Definition.CodeGen;
+using Facility.Definition.Fsd;
 using Facility.Definition.Http;
 
 namespace Facility.CodeGen.AspNet;
@@ -12,8 +13,18 @@ public sealed class AspNetGenerator : CodeGenerator
 	/// <summary>
 	/// Generates an ASP.NET controller.
 	/// </summary>
+	/// <param name="parser">The parser.</param>
 	/// <param name="settings">The settings.</param>
 	/// <returns>The number of updated files.</returns>
+	public static int GenerateAspNet(ServiceParser parser, AspNetGeneratorSettings settings) =>
+		FileGenerator.GenerateFiles(parser, new AspNetGenerator { GeneratorName = nameof(AspNetGenerator) }, settings);
+
+	/// <summary>
+	/// Generates an ASP.NET controller.
+	/// </summary>
+	/// <param name="settings">The settings.</param>
+	/// <returns>The number of updated files.</returns>
+	[Obsolete("Use the overload that takes a parser.")]
 	public static int GenerateAspNet(AspNetGeneratorSettings settings) =>
 		FileGenerator.GenerateFiles(new AspNetGenerator { GeneratorName = nameof(AspNetGenerator) }, settings);
 
