@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.10.1
+
+* Disable buffering for text/event-stream.
+
 ## 3.10.0
 
 * Support events.
