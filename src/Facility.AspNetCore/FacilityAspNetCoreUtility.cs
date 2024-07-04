@@ -3,6 +3,7 @@ using Facility.Core;
 using Facility.Core.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace Facility.AspNetCore;
 
@@ -62,19 +63,21 @@ public sealed class FacilityAspNetCoreUtility
 	/// </summary>
 	public static async Task WriteHttpResponseMessageAsync(HttpResponseMessage httpResponseMessage, HttpResponse contextResponse)
 	{
-		contextResponse.StatusCode = (int) httpResponseMessage.StatusCode;
+		// disable buffering for text/event-stream
+		var contentHeaders = httpResponseMessage.Content.Headers;
+		if (contentHeaders.ContentType?.MediaType == "text/event-stream")
+			contextResponse.HttpContext.Features.Get<IHttpResponseBodyFeature>()?.DisableBuffering();
 
-		var responseHeaders = httpResponseMessage.Headers;
+		contextResponse.StatusCode = (int) httpResponseMessage.StatusCode;
 
 		// Ignore the Transfer-Encoding header if it is just "chunked".
 		// We let the host decide about whether the response should be chunked or not.
+		var responseHeaders = httpResponseMessage.Headers;
 		if (responseHeaders is { TransferEncodingChunked: true, TransferEncoding.Count: 1 })
 			responseHeaders.TransferEncoding.Clear();
 
 		foreach (var header in responseHeaders)
 			contextResponse.Headers.Append(header.Key, header.Value.ToArray());
-
-		var contentHeaders = httpResponseMessage.Content.Headers;
 
 		// Copy the response content headers only after ensuring they are complete.
 		// We ask for Content-Length first because HttpContent lazily computes this
