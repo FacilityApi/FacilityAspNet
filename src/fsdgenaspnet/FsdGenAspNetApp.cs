@@ -2,6 +2,7 @@ using ArgsReading;
 using Facility.CodeGen.AspNet;
 using Facility.CodeGen.Console;
 using Facility.Definition.CodeGen;
+using Facility.Definition.Fsd;
 
 namespace fsdgenaspnet;
 
@@ -23,6 +24,8 @@ public sealed class FsdGenAspNetApp : CodeGeneratorApp
 		"   --target (webapi|core)",
 		"      The target ASP.NET framework (default webapi).",
 	];
+
+	protected override ServiceParser CreateParser() => new FsdParser(new FsdParserSettings { SupportsEvents = true });
 
 	protected override CodeGenerator CreateGenerator() => new AspNetGenerator();
 
