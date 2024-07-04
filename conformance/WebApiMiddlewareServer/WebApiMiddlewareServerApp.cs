@@ -34,14 +34,15 @@ public static class WebApiMiddlewareServerApp
 				Tests = LoadTests(),
 				JsonSerializer = JsonSerializer,
 			})));
-			configuration.Services.Replace(typeof(IHostBufferPolicySelector), new NoBufferPolicySelector());
+			configuration.Services.Replace(typeof(IHostBufferPolicySelector), new SseBufferPolicySelector(configuration.Services.GetHostBufferPolicySelector()));
 			app.UseWebApi(configuration);
 		}
 
-		private sealed class NoBufferPolicySelector : IHostBufferPolicySelector
+		private sealed class SseBufferPolicySelector(IHostBufferPolicySelector? inner) : IHostBufferPolicySelector
 		{
-			public bool UseBufferedInputStream(object hostContext) => false;
-			public bool UseBufferedOutputStream(HttpResponseMessage response) => false; //// required for event streaming
+			public bool UseBufferedInputStream(object hostContext) => inner?.UseBufferedInputStream(hostContext) ?? false;
+			public bool UseBufferedOutputStream(HttpResponseMessage response) =>
+				response.Content.Headers.ContentType?.MediaType != "text/event-stream" && (inner?.UseBufferedOutputStream(response) ?? false);
 		}
 	}
 
