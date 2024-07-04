@@ -2,7 +2,7 @@
 
 ## 3.10.0
 
-* Support events. (Must opt-in via `FsdParserSettings.SupportsEvents`.)
+* Support events.
 
 ## 3.9.0
 
