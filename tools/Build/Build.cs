@@ -50,6 +50,6 @@ return BuildRunner.Execute(args, build =>
 			"--namespace", "CoreControllerServer.Controllers", "--target", "core");
 
 		void RunCodeGen(params string?[] args) =>
-			RunDotNet(new[] { "run", "--no-build", "--project", $"src/{codegen}", "-f", "net6.0", "-c", configuration, "--", "--newline", "lf", verifyOption }.Concat(args));
+			RunDotNet(new[] { "run", "--no-build", "--project", $"src/{codegen}", "-c", configuration, "--", "--newline", "lf", verifyOption }.Concat(args));
 	}
 });
