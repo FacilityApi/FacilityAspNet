@@ -1,5 +1,10 @@
 # Release Notes
 
+## 3.11.0
+
+* Drop support for end-of-life frameworks.
+* Use roll forward with .NET tool.
+
 ## 3.10.1
 
 * Disable buffering for text/event-stream.
