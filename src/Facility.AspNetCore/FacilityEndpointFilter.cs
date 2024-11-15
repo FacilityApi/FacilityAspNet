@@ -1,4 +1,3 @@
-#if NET7_0_OR_GREATER
 using System.Net;
 using Facility.Core;
 using Facility.Core.Http;
@@ -30,4 +29,3 @@ public sealed class FacilityEndpointFilter : IEndpointFilter
 		return result;
 	}
 }
-#endif

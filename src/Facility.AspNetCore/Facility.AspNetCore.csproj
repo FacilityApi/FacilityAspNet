@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <TargetFramework>net8.0</TargetFramework>
     <Description>Helpers for using Facility with ASP.NET Core.</Description>
     <PackageTags>Facility FSD ASP.NET Core</PackageTags>
     <IsPackable>true</IsPackable>
