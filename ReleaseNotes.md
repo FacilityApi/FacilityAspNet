@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.11.1
+
+* Update Facility dependencies.
+
 ## 3.11.0
 
 * Drop support for end-of-life frameworks.
