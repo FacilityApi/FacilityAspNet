@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.11.2
+
+* Add .NET 9. Update dependencies.
+
 ## 3.11.1
 
 * Update Facility dependencies.
