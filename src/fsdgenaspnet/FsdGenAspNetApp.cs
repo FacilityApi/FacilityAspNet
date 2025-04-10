@@ -6,7 +6,7 @@ using Facility.Definition.Fsd;
 
 namespace fsdgenaspnet;
 
-public sealed class FsdGenAspNetApp : CodeGeneratorApp
+internal sealed class FsdGenAspNetApp : CodeGeneratorApp
 {
 	public static int Main(string[] args) => new FsdGenAspNetApp().Run(args);
 

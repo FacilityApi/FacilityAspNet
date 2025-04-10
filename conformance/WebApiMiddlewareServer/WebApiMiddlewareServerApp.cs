@@ -9,7 +9,7 @@ using Owin;
 
 namespace WebApiMiddlewareServer;
 
-public static class WebApiMiddlewareServerApp
+internal static class WebApiMiddlewareServerApp
 {
 	public static void Main()
 	{

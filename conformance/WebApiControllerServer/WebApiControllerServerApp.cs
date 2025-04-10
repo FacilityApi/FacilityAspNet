@@ -9,7 +9,7 @@ using Owin;
 
 namespace WebApiControllerServer;
 
-public static class WebApiControllerServerApp
+internal static class WebApiControllerServerApp
 {
 	public static void Main()
 	{
