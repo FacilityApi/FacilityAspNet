@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace Facility.CodeGen.AspNet.UnitTests;
 
-public sealed class AspNetGeneratorTests
+internal sealed class AspNetGeneratorTests
 {
 	[Test]
 	public void GenerateConformanceApiSuccess()

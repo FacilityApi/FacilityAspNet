@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Facility.ConformanceApi;
 using Facility.ConformanceApi.Http;
 using Facility.Core;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreControllerServer.Controllers;
 
+[SuppressMessage("Maintainability", "CA1515:Consider making public types internal", Justification = "Generated partial class is public.")]
 public partial class ConformanceApiController : Controller
 {
 	public ConformanceApiController(IConformanceApi api)

@@ -1,9 +1,9 @@
 <Project>
 
   <PropertyGroup>
-    <VersionPrefix>3.11.1</VersionPrefix>
-    <PackageValidationBaselineVersion>3.11.0</PackageValidationBaselineVersion>
-    <LangVersion>12.0</LangVersion>
+    <VersionPrefix>3.11.2</VersionPrefix>
+    <PackageValidationBaselineVersion>3.11.1</PackageValidationBaselineVersion>
+    <LangVersion>13.0</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
