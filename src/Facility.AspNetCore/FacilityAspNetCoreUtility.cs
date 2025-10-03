@@ -61,7 +61,13 @@ public sealed class FacilityAspNetCoreUtility
 	/// <summary>
 	/// Writes an <c>HttpResponseMessage</c> to an <c>HttpResponse</c>.
 	/// </summary>
-	public static async Task WriteHttpResponseMessageAsync(HttpResponseMessage httpResponseMessage, HttpResponse contextResponse)
+	public static Task WriteHttpResponseMessageAsync(HttpResponseMessage httpResponseMessage, HttpResponse contextResponse) =>
+		WriteHttpResponseMessageAsync(httpResponseMessage, contextResponse, CancellationToken.None);
+
+	/// <summary>
+	/// Writes an <c>HttpResponseMessage</c> to an <c>HttpResponse</c>.
+	/// </summary>
+	public static async Task WriteHttpResponseMessageAsync(HttpResponseMessage httpResponseMessage, HttpResponse contextResponse, CancellationToken cancellationToken)
 	{
 		// disable buffering for text/event-stream
 		var contentHeaders = httpResponseMessage.Content.Headers;
@@ -87,6 +93,6 @@ public sealed class FacilityAspNetCoreUtility
 		foreach (var header in contentHeaders)
 			contextResponse.Headers.Append(header.Key, header.Value.ToArray());
 
-		await httpResponseMessage.Content.CopyToAsync(contextResponse.Body).ConfigureAwait(false);
+		await httpResponseMessage.Content.CopyToAsync(contextResponse.Body, cancellationToken).ConfigureAwait(false);
 	}
 }
