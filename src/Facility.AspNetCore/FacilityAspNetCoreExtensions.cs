@@ -39,10 +39,11 @@ public static class FacilityAspNetCoreExtensions
 		return builder.UseExceptionHandler(
 			x => x.Run(async context =>
 			{
+				var cancellationToken = context.RequestAborted;
 				var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
 				var error = includeErrorDetails && exception != null ? ServiceErrorUtility.CreateInternalErrorForException(exception) : ServiceErrors.CreateInternalError();
 				using var httpResponseMessage = FacilityAspNetCoreUtility.CreateHttpResponseMessage(error, contentSerializer);
-				await FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync(httpResponseMessage, context.Response);
+				await FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync(httpResponseMessage, context.Response, cancellationToken);
 			}));
 	}
 

@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.12.0
+
+* Use `RequestAborted` cancellation token more consistently.
+
 ## 3.11.2
 
 * Add .NET 9. Update dependencies.

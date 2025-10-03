@@ -23,12 +23,13 @@ public sealed class FacilityAspNetCoreMiddleware<T>
 	/// </summary>
 	public async Task Invoke(HttpContext httpContext, T handler)
 	{
+		var cancellationToken = httpContext.RequestAborted;
 		var httpRequestMessage = FacilityAspNetCoreUtility.CreateHttpRequestMessage(httpContext.Request);
-		var httpResponseMessage = await handler.TryHandleHttpRequestAsync(httpRequestMessage, httpContext.RequestAborted).ConfigureAwait(false);
+		var httpResponseMessage = await handler.TryHandleHttpRequestAsync(httpRequestMessage, cancellationToken).ConfigureAwait(false);
 		if (httpResponseMessage != null)
 		{
 			using (httpResponseMessage)
-				await FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync(httpResponseMessage, httpContext.Response);
+				await FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync(httpResponseMessage, httpContext.Response, cancellationToken);
 		}
 		else
 		{

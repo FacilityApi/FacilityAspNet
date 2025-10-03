@@ -44,11 +44,12 @@ public sealed class FacilityActionFilter : ActionFilterAttribute
 
 	private static async Task WriteAndDisposeHttpResponseMessage(HttpResponseMessage httpResponseMessage, ActionContext context)
 	{
+		var cancellationToken = context.HttpContext.RequestAborted;
 		using (httpResponseMessage)
 		{
 			var contextResponse = context.HttpContext.Response;
 			if (!contextResponse.HasStarted)
-				await FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync(httpResponseMessage, contextResponse);
+				await FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync(httpResponseMessage, contextResponse, cancellationToken);
 		}
 	}
 
