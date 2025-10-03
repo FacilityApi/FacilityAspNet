@@ -1,10 +1,26 @@
-# FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync method
+# FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync method (1 of 2)
 
 Writes an `HttpResponseMessage` to an `HttpResponse`.
 
 ```csharp
 public static Task WriteHttpResponseMessageAsync(HttpResponseMessage httpResponseMessage, 
     HttpResponse contextResponse)
+```
+
+## See Also
+
+* class [FacilityAspNetCoreUtility](../FacilityAspNetCoreUtility.md)
+* namespace [Facility.AspNetCore](../../Facility.AspNetCore.md)
+
+---
+
+# FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync method (2 of 2)
+
+Writes an `HttpResponseMessage` to an `HttpResponse`.
+
+```csharp
+public static Task WriteHttpResponseMessageAsync(HttpResponseMessage httpResponseMessage, 
+    HttpResponse contextResponse, CancellationToken cancellationToken)
 ```
 
 ## See Also

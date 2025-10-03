@@ -13,7 +13,7 @@ public sealed class FacilityAspNetCoreUtility
 | [FacilityAspNetCoreUtility](FacilityAspNetCoreUtility/FacilityAspNetCoreUtility.md)() | The default constructor. |
 | static [CreateHttpRequestMessage](FacilityAspNetCoreUtility/CreateHttpRequestMessage.md)(…) | Converts an `HttpRequest` to an `HttpRequestMessage`. |
 | static [CreateHttpResponseMessage](FacilityAspNetCoreUtility/CreateHttpResponseMessage.md)(…) | Creates an `HttpResponseMessage` for an exception. (2 methods) |
-| static [WriteHttpResponseMessageAsync](FacilityAspNetCoreUtility/WriteHttpResponseMessageAsync.md)(…) | Writes an `HttpResponseMessage` to an `HttpResponse`. |
+| static [WriteHttpResponseMessageAsync](FacilityAspNetCoreUtility/WriteHttpResponseMessageAsync.md)(…) | Writes an `HttpResponseMessage` to an `HttpResponse`. (2 methods) |
 
 ## See Also
 
