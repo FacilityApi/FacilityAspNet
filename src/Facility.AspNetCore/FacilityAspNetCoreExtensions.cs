@@ -2,6 +2,7 @@ using Facility.Core;
 using Facility.Core.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Facility.AspNetCore;
 
@@ -23,9 +24,35 @@ public static class FacilityAspNetCoreExtensions
 	}
 
 	/// <summary>
+	/// Adds a Facility exception handler to the service collection.
+	/// </summary>
+	/// <remarks>Call <c>app.UseExceptionHandler()</c> to add the exception handler middleware to the pipeline.
+	/// Do not include error details in production.</remarks>
+	public static IServiceCollection AddFacilityExceptionHandler(this IServiceCollection services, Action<FacilityExceptionHandlerOptions>? configure = null)
+	{
+		ArgumentNullException.ThrowIfNull(services);
+
+		if (configure is not null)
+			services.Configure(configure);
+
+		services.AddExceptionHandler<FacilityExceptionHandler>();
+
+		return services;
+	}
+
+	/// <summary>
+	/// Adds a Facility exception handler to the service collection.
+	/// </summary>
+	/// <remarks>Call <c>app.UseExceptionHandler()</c> to add the exception handler middleware to the pipeline.
+	/// Do not include error details in production.</remarks>
+	public static IServiceCollection AddFacilityExceptionHandler(this IServiceCollection services, bool includeErrorDetails) =>
+		services.AddFacilityExceptionHandler(x => x.IncludeErrorDetails = includeErrorDetails);
+
+	/// <summary>
 	/// Adds a Facility service exception handler to the pipeline.
 	/// </summary>
 	/// <remarks>Do not include error details in production.</remarks>
+	[Obsolete("Use AddFacilityExceptionHandler and UseExceptionHandler.")]
 	public static IApplicationBuilder UseFacilityExceptionHandler(this IApplicationBuilder builder, Action<FacilityExceptionHandlerOptions>? configure = null)
 	{
 		ArgumentNullException.ThrowIfNull(builder);
@@ -51,6 +78,7 @@ public static class FacilityAspNetCoreExtensions
 	/// Adds a Facility service exception handler to the pipeline.
 	/// </summary>
 	/// <remarks>Do not include error details in production.</remarks>
+	[Obsolete("Use AddFacilityExceptionHandler and UseExceptionHandler.")]
 	public static IApplicationBuilder UseFacilityExceptionHandler(this IApplicationBuilder builder, bool includeErrorDetails) =>
 		builder.UseFacilityExceptionHandler(x => x.IncludeErrorDetails = includeErrorDetails);
 }

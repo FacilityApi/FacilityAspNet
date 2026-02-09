@@ -20,9 +20,11 @@ services.AddSingleton<IConformanceApi>(_ =>
 
 services.AddSingleton<ConformanceApiHttpHandler>();
 
+services.AddFacilityExceptionHandler(includeErrorDetails: !builder.Environment.IsProduction());
+
 var app = builder.Build();
 
-app.UseFacilityExceptionHandler(includeErrorDetails: !app.Environment.IsProduction());
+app.UseExceptionHandler();
 
 app.UseFacilityHttpHandler<ConformanceApiHttpHandler>();
 
