@@ -1,0 +1,29 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".github/workflows/build.yaml" />
+    <File Path=".gitignore" />
+    <File Path="build.ps1" />
+    <File Path="conformance/ConformanceApi.fsd" />
+    <File Path="conformance/ConformanceTests.json" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="dotnet-tools.json" />
+    <File Path="global.json" />
+    <File Path="LICENSE" />
+    <File Path="nuget.config" />
+    <File Path="README.md" />
+    <File Path="ReleaseNotes.md" />
+  </Folder>
+  <Project Path="conformance/CoreControllerServer/CoreControllerServer.csproj" />
+  <Project Path="conformance/CoreMiddlewareServer/CoreMiddlewareServer.csproj" />
+  <Project Path="conformance/WebApiControllerServer/WebApiControllerServer.csproj" />
+  <Project Path="conformance/WebApiMiddlewareServer/WebApiMiddlewareServer.csproj" />
+  <Project Path="src/Facility.AspNetCore/Facility.AspNetCore.csproj" />
+  <Project Path="src/Facility.CodeGen.AspNet/Facility.CodeGen.AspNet.csproj" />
+  <Project Path="src/fsdgenaspnet/fsdgenaspnet.csproj" />
+  <Project Path="tests/Facility.CodeGen.AspNet.UnitTests/Facility.CodeGen.AspNet.UnitTests.csproj" />
+  <Project Path="tools/Build/Build.csproj" />
+  <Project Path="tools/XmlDocGen/XmlDocGen.csproj" />
+</Solution>
