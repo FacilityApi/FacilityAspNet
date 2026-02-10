@@ -18,11 +18,19 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 	{
 		m_includeErrorDetails = options.Value.IncludeErrorDetails;
 		m_contentSerializer = options.Value.ContentSerializer ?? HttpContentSerializer.Create(SystemTextJsonServiceSerializer.Instance);
+		m_pathPrefixes = options.Value.PathPrefixes;
 	}
 
 	/// <inheritdoc />
 	public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
 	{
+		if (m_pathPrefixes is not null)
+		{
+			var requestPath = httpContext.Request.Path;
+			if (!m_pathPrefixes.Any(x => requestPath.StartsWithSegments(x, StringComparison.OrdinalIgnoreCase)))
+				return false;
+		}
+
 		var error = m_includeErrorDetails ? ServiceErrorUtility.CreateInternalErrorForException(exception) : ServiceErrors.CreateInternalError();
 
 		using var httpResponseMessage = FacilityAspNetCoreUtility.CreateHttpResponseMessage(error, m_contentSerializer);
@@ -33,4 +41,5 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 
 	private readonly bool m_includeErrorDetails;
 	private readonly HttpContentSerializer m_contentSerializer;
+	private readonly IReadOnlyList<string>? m_pathPrefixes;
 }
