@@ -19,7 +19,7 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 	{
 		m_includeErrorDetails = options.Value.IncludeErrorDetails;
 		m_contentSerializer = options.Value.ContentSerializer ?? HttpContentSerializer.Create(SystemTextJsonServiceSerializer.Instance);
-		m_pathPrefixes = options.Value.PathPrefixes;
+		m_pathPrefixes = NormalizePathPrefixes(options.Value.PathPrefixes);
 	}
 
 	/// <inheritdoc />
@@ -41,6 +41,12 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 		return true;
 	}
 
+	private static List<string>? NormalizePathPrefixes(IReadOnlyList<string>? pathPrefixes) =>
+		pathPrefixes?
+			.Where(x => !string.IsNullOrWhiteSpace(x))
+			.Select(x => x.StartsWith('/') ? x.TrimEnd('/') : $"/{x.TrimEnd('/')}")
+			.ToList();
+
 	private static IReadOnlyList<string>? GetPathPrefixesFromRootPath(string? rootPath)
 	{
 		rootPath = rootPath?.TrimEnd('/');
@@ -49,5 +55,5 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 
 	private readonly bool m_includeErrorDetails;
 	private readonly HttpContentSerializer m_contentSerializer;
-	private readonly IReadOnlyList<string>? m_pathPrefixes;
+	private readonly List<string>? m_pathPrefixes;
 }
