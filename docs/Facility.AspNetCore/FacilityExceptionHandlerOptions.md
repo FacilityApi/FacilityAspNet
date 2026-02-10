@@ -1,6 +1,6 @@
 # FacilityExceptionHandlerOptions class
 
-Options for `FacilityAspNetCoreExtensions.UseFacilityExceptionHandler`.
+Options for [`FacilityExceptionHandler`](./FacilityExceptionHandler.md).
 
 ```csharp
 public sealed class FacilityExceptionHandlerOptions
