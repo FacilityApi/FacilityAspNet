@@ -43,7 +43,6 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 
 	private static List<string>? NormalizePathPrefixes(IReadOnlyList<string>? pathPrefixes) =>
 		pathPrefixes?
-			.Where(x => !string.IsNullOrWhiteSpace(x))
 			.Select(x => x.StartsWith('/') ? x.TrimEnd('/') : $"/{x.TrimEnd('/')}")
 			.ToList();
 
