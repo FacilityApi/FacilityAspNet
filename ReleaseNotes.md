@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.13.0
+
+* Use `AddFacilityExceptionHandler` instead of `UseFacilityExceptionHandler`.
+
 ## 3.12.0
 
 * Use `RequestAborted` cancellation token more consistently.
