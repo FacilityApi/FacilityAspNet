@@ -18,9 +18,11 @@ public sealed class FacilityExceptionHandlerOptions
 	public HttpContentSerializer? ContentSerializer { get; set; }
 
 	/// <summary>
-	/// The path prefixes to handle. If null, all paths are handled.
+	/// The path prefixes to handle.
 	/// </summary>
-	/// <remarks>For example, set to <c>["/v2", "/v3"]</c> to only handle
-	/// exceptions for requests whose path starts with <c>/v2</c> or <c>/v3</c>.</remarks>
+	/// <remarks> For example, set to <c>["/v2", "/v3"]</c> to only handle
+	/// exceptions for requests whose path starts with <c>/v2</c> or <c>/v3</c>.
+	/// If not specified, the `RootPath` from the registered <c>ServiceHttpHandlerSettings</c> is used.
+	/// If that is not specified, all paths are handled.</remarks>
 	public IReadOnlyList<string>? PathPrefixes { get; set; }
 }

@@ -2,6 +2,7 @@ using Facility.Core;
 using Facility.Core.Http;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 namespace Facility.AspNetCore;
@@ -24,10 +25,11 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 	/// <inheritdoc />
 	public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
 	{
-		if (m_pathPrefixes is not null)
+		var pathPrefixes = m_pathPrefixes ?? GetPathPrefixesFromRootPath(httpContext.RequestServices.GetService<ServiceHttpHandlerSettings>()?.RootPath);
+		if (pathPrefixes is not null)
 		{
 			var requestPath = httpContext.Request.Path;
-			if (!m_pathPrefixes.Any(x => requestPath.StartsWithSegments(x, StringComparison.OrdinalIgnoreCase)))
+			if (!pathPrefixes.Any(x => requestPath.StartsWithSegments(x, StringComparison.OrdinalIgnoreCase)))
 				return false;
 		}
 
@@ -37,6 +39,12 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 		await FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync(httpResponseMessage, httpContext.Response, cancellationToken);
 
 		return true;
+	}
+
+	private static IReadOnlyList<string>? GetPathPrefixesFromRootPath(string? rootPath)
+	{
+		rootPath = rootPath?.TrimEnd('/');
+		return string.IsNullOrEmpty(rootPath) ? null : [rootPath];
 	}
 
 	private readonly bool m_includeErrorDetails;
