@@ -95,4 +95,10 @@ public sealed class FacilityAspNetCoreUtility
 
 		await httpResponseMessage.Content.CopyToAsync(contextResponse.Body, cancellationToken).ConfigureAwait(false);
 	}
+
+	internal static IReadOnlyList<string>? GetPathPrefixesFromRootPath(string? rootPath)
+	{
+		rootPath = rootPath?.TrimEnd('/');
+		return string.IsNullOrEmpty(rootPath) ? null : [rootPath];
+	}
 }

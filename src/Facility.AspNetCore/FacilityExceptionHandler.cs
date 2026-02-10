@@ -25,7 +25,7 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 	/// <inheritdoc />
 	public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
 	{
-		var pathPrefixes = m_pathPrefixes ?? GetPathPrefixesFromRootPath(httpContext.RequestServices.GetService<ServiceHttpHandlerSettings>()?.RootPath);
+		var pathPrefixes = m_pathPrefixes ?? FacilityAspNetCoreUtility.GetPathPrefixesFromRootPath(httpContext.RequestServices.GetService<ServiceHttpHandlerSettings>()?.RootPath);
 		if (pathPrefixes is not null)
 		{
 			var requestPath = httpContext.Request.Path;
@@ -46,12 +46,6 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 			.Where(x => !string.IsNullOrWhiteSpace(x))
 			.Select(x => x.StartsWith('/') ? x.TrimEnd('/') : $"/{x.TrimEnd('/')}")
 			.ToList();
-
-	private static IReadOnlyList<string>? GetPathPrefixesFromRootPath(string? rootPath)
-	{
-		rootPath = rootPath?.TrimEnd('/');
-		return string.IsNullOrEmpty(rootPath) ? null : [rootPath];
-	}
 
 	private readonly bool m_includeErrorDetails;
 	private readonly HttpContentSerializer m_contentSerializer;
