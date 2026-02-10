@@ -22,9 +22,11 @@ services.AddControllers(options => options.Filters.Add<FacilityActionFilter>())
 
 services.ConfigureHttpJsonOptions(options => SystemTextJsonServiceSerializer.ConfigureJsonSerializerOptions(options.SerializerOptions));
 
+services.AddFacilityExceptionHandler(includeErrorDetails: !builder.Environment.IsProduction());
+
 var app = builder.Build();
 
-app.UseFacilityExceptionHandler(includeErrorDetails: !app.Environment.IsProduction());
+app.UseExceptionHandler();
 
 app.UseRouting();
 

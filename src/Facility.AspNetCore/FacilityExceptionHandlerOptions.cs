@@ -3,7 +3,7 @@ using Facility.Core.Http;
 namespace Facility.AspNetCore;
 
 /// <summary>
-/// Options for <c>FacilityAspNetCoreExtensions.UseFacilityExceptionHandler</c>.
+/// Options for <see cref="FacilityExceptionHandler" />.
 /// </summary>
 public sealed class FacilityExceptionHandlerOptions
 {
