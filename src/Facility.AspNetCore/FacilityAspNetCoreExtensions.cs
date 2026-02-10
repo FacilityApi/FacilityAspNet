@@ -63,10 +63,23 @@ public static class FacilityAspNetCoreExtensions
 
 		var includeErrorDetails = options.IncludeErrorDetails;
 		var contentSerializer = options.ContentSerializer ?? HttpContentSerializer.Create(SystemTextJsonServiceSerializer.Instance);
+		var pathPrefixes = options.PathPrefixes;
 
 		return builder.UseExceptionHandler(
 			x => x.Run(async context =>
 			{
+				var effectivePrefixes = pathPrefixes ?? FacilityAspNetCoreUtility.GetPathPrefixesFromRootPath(
+					context.RequestServices.GetService<ServiceHttpHandlerSettings>()?.RootPath);
+				if (effectivePrefixes is not null)
+				{
+					var requestPath = context.Request.Path;
+					if (!effectivePrefixes.Any(x => requestPath.StartsWithSegments(x, StringComparison.OrdinalIgnoreCase)))
+					{
+						// not handled; let the default behavior run
+						return;
+					}
+				}
+
 				var cancellationToken = context.RequestAborted;
 				var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
 				var error = includeErrorDetails && exception != null ? ServiceErrorUtility.CreateInternalErrorForException(exception) : ServiceErrors.CreateInternalError();
