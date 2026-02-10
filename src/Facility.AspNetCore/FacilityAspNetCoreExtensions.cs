@@ -36,6 +36,7 @@ public static class FacilityAspNetCoreExtensions
 			services.Configure(configure);
 
 		services.AddExceptionHandler<FacilityExceptionHandler>();
+		services.AddProblemDetails();
 
 		return services;
 	}
