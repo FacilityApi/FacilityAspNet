@@ -42,9 +42,7 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 	}
 
 	private static List<string>? NormalizePathPrefixes(IReadOnlyList<string>? pathPrefixes) =>
-		pathPrefixes?
-			.Select(x => x.StartsWith('/') ? x.TrimEnd('/') : $"/{x.TrimEnd('/')}")
-			.ToList();
+		pathPrefixes?.Select(x => $"/{x.Trim('/')}").ToList();
 
 	private readonly bool m_includeErrorDetails;
 	private readonly HttpContentSerializer m_contentSerializer;
