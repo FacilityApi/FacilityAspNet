@@ -25,6 +25,7 @@ public sealed class FacilityAspNetCoreMiddleware<T>
 	{
 		var cancellationToken = httpContext.RequestAborted;
 		var httpRequestMessage = FacilityAspNetCoreUtility.CreateHttpRequestMessage(httpContext.Request);
+		httpContext.Features.Set(new FacilityRequestMessageFeature { RequestMessage = httpRequestMessage });
 		var httpResponseMessage = await handler.TryHandleHttpRequestAsync(httpRequestMessage, cancellationToken).ConfigureAwait(false);
 		if (httpResponseMessage != null)
 		{
