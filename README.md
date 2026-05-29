@@ -2,8 +2,6 @@
 
 [ASP.NET support](https://facilityapi.github.io/generate/aspnet) for the [Facility API Framework](https://facilityapi.github.io/).
 
-[![Build](https://github.com/FacilityApi/FacilityAspNet/workflows/Build/badge.svg)](https://github.com/FacilityApi/FacilityAspNet/actions?query=workflow%3ABuild)
-
 Name | Description | NuGet
 --- | --- | ---
 Facility.AspNetCore | Helpers for using Facility with ASP.NET Core. | [![NuGet](https://img.shields.io/nuget/v/Facility.AspNetCore.svg)](https://www.nuget.org/packages/Facility.AspNetCore)
