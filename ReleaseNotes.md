@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.13.1
+
+* Update NuGet package README.
+
 ## 3.13.0
 
 * Use `AddFacilityExceptionHandler` instead of `UseFacilityExceptionHandler`.
