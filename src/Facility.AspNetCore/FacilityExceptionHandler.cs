@@ -3,6 +3,7 @@ using Facility.Core.Http;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace Facility.AspNetCore;
@@ -15,11 +16,12 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 	/// <summary>
 	/// Creates an instance.
 	/// </summary>
-	public FacilityExceptionHandler(IOptions<FacilityExceptionHandlerOptions> options)
+	public FacilityExceptionHandler(IOptions<FacilityExceptionHandlerOptions> options, ILogger<FacilityExceptionHandler> logger)
 	{
 		m_includeErrorDetails = options.Value.IncludeErrorDetails;
 		m_contentSerializer = options.Value.ContentSerializer ?? HttpContentSerializer.Create(SystemTextJsonServiceSerializer.Instance);
 		m_pathPrefixes = NormalizePathPrefixes(options.Value.PathPrefixes);
+		m_logger = logger;
 	}
 
 	/// <inheritdoc />
@@ -34,6 +36,7 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 		}
 
 		var error = m_includeErrorDetails ? ServiceErrorUtility.CreateInternalErrorForException(exception) : ServiceErrors.CreateInternalError();
+		m_logger.LogError(exception, "Unhandled exception: " + exception.Message);
 
 		using var httpResponseMessage = FacilityAspNetCoreUtility.CreateHttpResponseMessage(error, m_contentSerializer);
 		await FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync(httpResponseMessage, httpContext.Response, cancellationToken);
@@ -47,4 +50,5 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 	private readonly bool m_includeErrorDetails;
 	private readonly HttpContentSerializer m_contentSerializer;
 	private readonly List<string>? m_pathPrefixes;
+	private readonly ILogger<FacilityExceptionHandler> m_logger;
 }
