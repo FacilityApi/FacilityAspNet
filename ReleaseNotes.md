@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.13.2
+
+* Log unhandled exceptions. 
+
 ## 3.13.1
 
 * Update NuGet package README.
