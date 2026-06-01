@@ -1,5 +1,9 @@
 # Release Notes
 
+## 3.13.3
+
+* Improve log message for unhandled exceptions.
+
 ## 3.13.2
 
 * Log unhandled exceptions. 
