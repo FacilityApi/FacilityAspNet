@@ -36,7 +36,7 @@ public sealed class FacilityExceptionHandler : IExceptionHandler
 		}
 
 		var error = m_includeErrorDetails ? ServiceErrorUtility.CreateInternalErrorForException(exception) : ServiceErrors.CreateInternalError();
-		m_logger.LogCritical(exception, "Unexpected internal error for '{RequestPath}'", httpContext.Request.Path);
+		m_logger.LogError(exception, "Unhandled exception: " + exception.Message);
 
 		using var httpResponseMessage = FacilityAspNetCoreUtility.CreateHttpResponseMessage(error, m_contentSerializer);
 		await FacilityAspNetCoreUtility.WriteHttpResponseMessageAsync(httpResponseMessage, httpContext.Response, cancellationToken);
