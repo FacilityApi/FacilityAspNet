@@ -1,8 +1,8 @@
 <Project>
 
   <PropertyGroup>
-    <VersionPrefix>3.13.4</VersionPrefix>
-    <PackageValidationBaselineVersion>3.13.3</PackageValidationBaselineVersion>
+    <VersionPrefix>3.13.5</VersionPrefix>
+    <PackageValidationBaselineVersion>3.13.4</PackageValidationBaselineVersion>
     <NoWarn>$(NoWarn);1591;1998;CA2007;NU1507;NU5105</NoWarn>
     <GitHubOrganization>FacilityApi</GitHubOrganization>
     <RepositoryName>FacilityAspNet</RepositoryName>

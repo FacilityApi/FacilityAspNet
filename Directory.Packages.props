@@ -8,8 +8,8 @@
   <!-- END DO NOT EDIT -->
   <ItemGroup>
     <PackageVersion Include="Facility.CodeGen.Console" Version="2.19.0" />
-    <PackageVersion Include="Facility.ConformanceApi" Version="2.38.2" />
-    <PackageVersion Include="Facility.Core" Version="2.38.2" />
+    <PackageVersion Include="Facility.ConformanceApi" Version="2.38.3" />
+    <PackageVersion Include="Facility.Core" Version="2.38.3" />
     <PackageVersion Include="Facility.Definition" Version="2.19.0" />
     <PackageVersion Include="Microsoft.AspNet.WebApi.OwinSelfHost" Version="5.3.0" />
     <PackageVersion Include="FluentAssertions" Version="7.2.2" />
